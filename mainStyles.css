@@ -43,7 +43,9 @@ body {
 .slider {
   display: flex;
   aspect-ratio: 16 / 9;
-  overflow-x: auto;
+  overflow-x: hidden;
+
+  /* Check this overflow value again, Not sure if I have it wrong for the eventual JS timed scroll upon website arrival */
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
 }
