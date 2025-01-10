@@ -48,12 +48,21 @@ body {
   /* Check this overflow value again, Not sure if I have it wrong for the eventual JS timed scroll upon website arrival */
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  transition: transform 0.5s ease-in-out;
+  cursor: grab;
+}
+
+.slider.grabbing {
+  cursor: grabbing;
+  transition: none;
 }
 
 .slider img {
   flex: 1 0 100%;
   scroll-snap-align: start;
   object-fit: cover;
+  pointer-events: none;
+  user-select: none;
 }
 .sliderNav {
   display: flex;
@@ -70,10 +79,16 @@ body {
   border-radius: 50%;
   border-color: rgb(98, 190, 223);
   background-color: white;
-  transition: color ease 250ms;
+  transition: all 0.25s ease;
+  display: block;
+  cursor: pointer;
 }
 
 .sliderNav a:hover {
   background-color: white;
   cursor: pointer;
+}
+
+.sliderNav a.active {
+  background-color: rgb(98, 190, 223);
 }
