@@ -66,7 +66,7 @@ body {
     color: white;
     text-decoration: none;
     user-select: none;
-    font-family: 'tenon', sans-serif;
+    font-family: 'tt-commons-pro', sans-serif;
     font-weight: 300;
     font-style: normal;
     position: relative;
@@ -178,7 +178,7 @@ ul {
     color: black;
     text-decoration: none;
     user-select: none;
-    font-family: 'tenon', sans-serif;
+    font-family: 'tt-commons-pro', sans-serif;
     font-weight: 300;
     font-style: normal;
     display: flex;
@@ -224,14 +224,13 @@ ul {
     color: black;
     text-decoration: none;
     user-select: none;
-    font-family: 'tenon', sans-serif;
+    font-family: 'tt-commons-pro', sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 5rem;
     line-height: 5.5rem;
     display: flex;
     align-items: flex-end;
-
     justify-content: right;
     text-align: right;
     cursor: pointer;
@@ -276,7 +275,7 @@ ul {
 
 @keyframes fontChange {
     0% {
-        font-family: 'tenon', sans-serif;
+        font-family: 'tt-commons-pro', sans-serif;
         font-weight: bold;
         text-transform: uppercase;
     }
@@ -297,6 +296,6 @@ ul {
         text-transform: lowercase;
     }
     to {
-        font-family: 'tenon', sans-serif;
+        font-family: 'tt-commons-pro', sans-serif;
     }
 }
