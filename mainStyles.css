@@ -47,18 +47,11 @@ body {
   scroll-behavior: smooth;
   transition: transform 0.5s ease-in-out;
   cursor: grab;
-  overflow: visible;
-  touch-action: pan-y pinch-zoom;
-  will-change: transform;
 }
 
 .slider.grabbing {
   cursor: grabbing;
   transition: none;
-}
-
-.slider.with-transition {
-  transition: transform 0.5s ease-in-out;
 }
 
 .slider img {
