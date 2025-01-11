@@ -119,18 +119,18 @@ class Carousel {
         // Calculate how far we've moved as a percentage of slide width
         const movePercentage = Math.abs(movedBy) / sliderWidth;
         
-        // If we've moved more than 50% of the slide width
-        if (movePercentage > 0.5) {
+        // If we've moved more than 30% of the slide width
+        if (movePercentage > 0.3) {
             if (movedBy > 0 && this.currentSlide > 0) {
-                // Moved right more than 50% - go to previous slide
+                // Moved right more than 30% - go to previous slide
                 this.currentSlide--;
             } else if (movedBy < 0 && this.currentSlide < this.totalSlides - 1) {
-                // Moved left more than 50% - go to next slide
+                // Moved left more than 30% - go to next slide
                 this.currentSlide++;
             }
         }
         
-        // If we haven't moved more than 50%, goToSlide will snap back to current slide
+        // If we haven't moved more than 30%, goToSlide will snap back to current slide
         this.goToSlide(this.currentSlide, true);
     }
 
