@@ -204,37 +204,7 @@ ul {
     transition: color 0.2s ease-in-out;
 }
 
-#designDropdown a:hover {
-    color: rgb(131, 131, 131);
-    /* color: blue; */
-    cursor: pointer;
-}
 
-#designDropdown a {
-    transition: color 0.2s ease-in-out;
-}
-
-#designDropdown {
-    padding-bottom: 10rem;
-    display: none;
-    flex-direction: column;
-}
-
-.projectList {
-    color: black;
-    text-decoration: none;
-    user-select: none;
-    font-family: 'tt-commons-pro', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 5rem;
-    line-height: 5.5rem;
-    display: flex;
-    align-items: flex-end;
-    justify-content: right;
-    text-align: right;
-    cursor: pointer;
-}
 
 .fade-in,
 .fade-in:visited,
