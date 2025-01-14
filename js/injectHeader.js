@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('headerTemplate.html')
+    fetch('../html/headerTemplate.html')
         .then(response => response.text())
         .then(data => {
             // Insert the header content before the main tag
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Load and execute hamburger.js after header is injected
                 const script = document.createElement('script');
-                script.src = 'hamburger.js';
+                script.src = '../js/hamburger.js';
                 document.body.appendChild(script);
             }
         })
