@@ -128,13 +128,13 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
-  gap: 0.2em;
+  gap: 1rem;
   width: 10em;
-  height: 7em;
+  height: auto;
 }
 
 #type1 article {
-  bottom: 3em;
+  bottom: 5em;
   left: 10em;
 }
 
