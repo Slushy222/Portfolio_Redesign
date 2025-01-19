@@ -1,14 +1,12 @@
 const hamburger = document.querySelector(".hamburgerWrapper");
 const webTitle = document.getElementById("webTitle");
 const dropDown = document.getElementById("dropdownNav");
-const designDropDown = document.getElementById("designDropdown");
 const designSelector = document.getElementById("designSelector");
 const designNav = document.getElementById("designNav");
 const aboutNav = document.getElementById("aboutNav");
 const navContainer = document.getElementById("navBarContainer");
 
 let menuOpen = false;
-let designOpen = false;
 
 
 hamburger.addEventListener('click', () => {
@@ -46,31 +44,14 @@ document.addEventListener('keydown', function(event) {
 });
 
 designSelector.addEventListener('click', () => {
-    if (!designOpen) {
-        designOpen = true;
-        designDropDown.style.display = "flex";
-    }
-    else {
-        designOpen = false;
-        checkDesignOpen();
-    }
+    closeNav();
 });
-
-function checkDesignOpen() {
-    if (!designOpen) {
-        designDropDown.style.display = "none";
-    }
-}
 
 function closeNav() {
     hamburger.classList.remove('open');
     menuOpen = false;
     webTitle.classList.remove('open')
     dropDown.classList.remove('open')
-    designOpen = false;
-    setTimeout(() => {
-        checkDesignOpen();
-    }, 200);
 }
 
 
@@ -79,7 +60,7 @@ document.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
     const viewportHeight = window.innerHeight;
 
-    if (scrollPosition > viewportHeight * 1.0) { // 20% of viewport height
+    if (scrollPosition > viewportHeight * 1.0) {
         navDiv();
     } else {
         navContainer.classList.remove('open');

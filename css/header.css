@@ -60,7 +60,7 @@ body {
     height: 5em;
     padding: 5em 7vw 5em;
     background-color: rgb(27, 28, 28);
-    z-index: 990;
+    z-index: 890;
     transition: all 0.4s ease-in-out;
     transform: translateY(-100%);
 }

@@ -1,0 +1,13 @@
+
+:root {
+    font-size: 10px;
+}
+
+/* project grid */
+
+.projectGridContainer {
+    height: 3000px;
+    width: 100vw;
+    display: flex;
+    position: absolute;
+  }
