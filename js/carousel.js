@@ -1,5 +1,5 @@
 class Carousel {
-    constructor(sliderElement, navElement, interval = 5000) {
+    constructor(sliderElement, navElement, interval = 6000) {
         this.slider = sliderElement;
         this.nav = navElement;
         this.interval = interval;

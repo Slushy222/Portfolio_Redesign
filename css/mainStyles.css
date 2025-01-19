@@ -129,11 +129,15 @@ body {
 }
 
 .featuredType p {
-  display: inline;
+  display: inline-block;
   position: relative;
   margin-right: 1em;
   margin-top: 0px;
   font-size: 1.8rem;
+}
+
+#collab {
+  margin-right: 0;
 }
 
 .featuredType article {
@@ -151,7 +155,7 @@ body {
 }
 
 #type2 article {
-  bottom: 3em;
+  bottom: 2.8em;
   left: 6em;
 }
 
@@ -177,7 +181,7 @@ body {
   align-items: center;
 }
 
-.featuredCategory::before {
+.featuredCategory::before, #kailey::before{
   content: '';
   position: absolute;
   width: 100%;
@@ -190,7 +194,7 @@ body {
   transition: opacity .25s ease-in-out;
 }
 
-.featuredCategory:hover::before {
+.featuredCategory:hover::before, #kailey:hover::before{
   opacity: 1;
 }
 
