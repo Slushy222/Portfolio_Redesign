@@ -4,7 +4,7 @@ class Carousel {
         this.nav = navElement;
         this.interval = interval;
         this.currentSlide = 0;
-        this.slides = this.slider.querySelectorAll('img');
+        this.slides = this.slider.querySelectorAll('.slide');
         this.navDots = this.nav.querySelectorAll('a');
         this.totalSlides = this.slides.length;
         
