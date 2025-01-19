@@ -14,7 +14,7 @@ class Carousel {
         this.currentTranslate = 0;
         this.prevTranslate = 0;
         this.animationID = 0;
-        this.dragThreshold = 50; // Reduced threshold for more responsive feel
+        this.dragThreshold = 50; 
         
         // Timer reference
         this.rotationInterval = null;
@@ -32,6 +32,7 @@ class Carousel {
             this.startAutoRotation(); 
         } 
     }
+
 
     init() {
         this.updateNavigation();
@@ -192,10 +193,25 @@ class Carousel {
         this.startAutoRotation();
     }
 }
-  
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const sliderElement = document.querySelector('.slider');
     const navElement = document.querySelector('.sliderNav');
+    const featuredTypes = document.querySelectorAll('.featuredType');
     
-    const carousel = new Carousel(sliderElement, navElement, 5000);
+    const carousel = new Carousel(sliderElement, navElement, 6000);
+
+    featuredTypes.forEach(featured => {
+        const article = featured.querySelector('.frontPageBlock');
+        if (article) {
+            article.addEventListener("mouseover", function() {
+                carousel.stopAutoRotation();
+            });
+              
+            article.addEventListener("mouseout", function() {
+                carousel.startAutoRotation();
+            });
+        }
+    });
 });
