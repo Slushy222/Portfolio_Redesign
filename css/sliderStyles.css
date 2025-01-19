@@ -88,7 +88,7 @@ body {
   bottom: 5em;
   left: 7vw;
   width: fit-content;
-  z-index: 999;
+  z-index: 980;
 }
 
 .sliderNav a {
@@ -197,4 +197,19 @@ body {
 
 #type1 h2:hover, #type1 h2:hover a:link, #type1 h2:hover a:visited, #type2 h2:hover, #type2 h2:hover a:link, #type2 h2:hover a:visited, #type3 h2:hover, #type3 h2:hover a:link, #type3 h2:hover a:visited {
   color: blue;
+}
+
+
+
+
+
+
+
+
+
+#nextSection {
+  height: 3000px;
+  width: 100vw;
+  display: flex;
+  position: absolute;
 }

@@ -5,7 +5,7 @@ const designDropDown = document.getElementById("designDropdown");
 const designSelector = document.getElementById("designSelector");
 const designNav = document.getElementById("designNav");
 const aboutNav = document.getElementById("aboutNav");
-const projectItems = document.querySelectorAll('.projectList a');
+const navContainer = document.getElementById("navBarContainer");
 
 let menuOpen = false;
 let designOpen = false;
@@ -73,22 +73,20 @@ function closeNav() {
     }, 200);
 }
 
-document.querySelectorAll('.sectionNumber').forEach(number => {
-    number.style.opacity = '0';
+
+
+document.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const viewportHeight = window.innerHeight;
+
+    if (scrollPosition > viewportHeight * 1.0) { // 20% of viewport height
+        navDiv();
+    } else {
+        navContainer.classList.remove('open');
+    }
 });
 
-projectItems.forEach(navItem => {
-    navItem.addEventListener('mouseenter', () => {
-        const number = navItem.querySelector('.sectionNumber');
-        if (number) {
-            number.style.opacity = '1';
-        }
-    });
 
-    navItem.addEventListener('mouseleave', () => {
-        const number = navItem.querySelector('.sectionNumber');
-        if (number) {
-            number.style.opacity = '0';
-        }
-    });
-});
+function navDiv() {
+    navContainer.classList.add('open');
+}
