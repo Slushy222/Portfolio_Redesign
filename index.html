@@ -16,11 +16,29 @@
         <link rel="stylesheet" href="css/header.css"/>
         <link rel="stylesheet" href="css/sliderStyles.css"/>
         <link rel="stylesheet" href="css/projectGridStyles.css"/>
-        <script src="js/injectHeader.js"></script>
     </head>
     
     <body>
-        <!-- header gets injected here, probably, hopefully -->
+        <header class="siteHeader">
+            <div id="topNavBar">
+                <h1 id="webTitle"><a href="../index.html">Taylor Sampson</a></h1>
+                
+                <div class="hamburgerWrapper">
+                    <div id="hamburgerTopBar"></div>
+                    <div id="hamburgerBottomBar"></div>
+                </div>
+            </div>
+        
+            <nav id="dropdownNav">
+                <ul>
+                    <li id="designNav"><a href="../index.html#designOverview" id="designSelector">Design</a></li>
+                    <li id="aboutNav"><a href="#" id="aboutSelector">About</a></li>
+                </ul>
+            </nav>
+        
+            <div id="navBarContainer"></div>
+            <script src="../js/hamburger.js"></script>
+        </header>
         <main class="mainContent">
             <section class="frontSliderContainer">
                 <div class="sliderWrapper">
