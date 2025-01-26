@@ -57,14 +57,8 @@
 
 
 #projectNav #allTag {
-    padding-right: 3rem;
+    padding-right: 6rem;
 }
-
-#projectNav #divider {
-    padding-right: 3rem;
-}
-
-
 
 #projectNav a::before{
     content: '';
