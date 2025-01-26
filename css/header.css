@@ -87,14 +87,6 @@ body {
     transition: color 1s ease-in-out;
 }
 
-#webTitle.open:hover, #webTitle.open:hover a:link, #webTitle.open:hover a:visited {
-    /* color: blue; */
-    color: rgb(131, 131, 131);
-    animation: fontChange 1s steps(1) forwards, fontRevert 0.2s steps(1) forwards;
-    animation-delay: 0s, 2s;
-    transition: color 1s ease-in-out;
-}
-
 #webTitle.open a:link, #webTitle.open a:visited {
     color: black;
 }
@@ -202,7 +194,6 @@ ul {
 #designNav #designSelector:hover,
 #aboutNav #aboutSelector:hover {
     color: rgb(131, 131, 131);
-    /* color: blue; */
     cursor: pointer;
 }
 

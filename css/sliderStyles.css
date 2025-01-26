@@ -183,7 +183,7 @@ body {
   align-items: center;
 }
 
-.featuredCategory::before, #kailey::before{
+.featuredCategory::before, #kailey::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -196,7 +196,7 @@ body {
   transition: opacity .25s ease-in-out;
 }
 
-.featuredCategory:hover::before, #kailey:hover::before{
+.featuredCategory:hover::before, #kailey:hover::before {
   opacity: 1;
 }
 

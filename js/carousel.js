@@ -202,16 +202,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const carousel = new Carousel(sliderElement, navElement, 6000);
 
-    featuredTypes.forEach(featured => {
-        const article = featured.querySelector('.frontPageBlock');
-        if (article) {
-            article.addEventListener("mouseover", function() {
-                carousel.stopAutoRotation();
-            });
+    // featuredTypes.forEach(featured => {
+    //     const article = featured.querySelector('.frontPageBlock');
+    //     if (article) {
+    //         article.addEventListener("mouseover", function() {
+    //             carousel.stopAutoRotation();
+    //         });
               
-            article.addEventListener("mouseout", function() {
-                carousel.startAutoRotation();
-            });
-        }
-    });
+    //         article.addEventListener("mouseout", function() {
+    //             carousel.startAutoRotation();
+    //         });
+    //     }
+    // });
 });
