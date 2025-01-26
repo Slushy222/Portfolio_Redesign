@@ -25,6 +25,45 @@
     list-style-type: none;
 }
 
+#projectNav li {
+    display: inline;
+    font-size: 2em;
+    padding-right: 2rem;
+}
+
+#divider {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    font-family: 'tt-commons-pro', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    position: relative;
+    transition: none;
+    list-style-type: none;
+}
+
+#projectNav {
+    position: relative;
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    height: 5em;
+    padding: 12em 7vw 5em;
+    z-index: 800;
+}
+
+
+#projectNav #allTag {
+    padding-right: 3rem;
+}
+
+#projectNav #divider {
+    padding-right: 3rem;
+}
+
 
 
 #projectNav a::before{
