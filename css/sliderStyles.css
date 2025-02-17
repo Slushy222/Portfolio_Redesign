@@ -26,6 +26,20 @@ body {
   font-size: 10px;
 }
 
+
+/* subtle main elements */
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.mainContent section {
+  scroll-snap-align: start;
+}
+
+
 /* front slider */
 
 .frontSliderContainer {

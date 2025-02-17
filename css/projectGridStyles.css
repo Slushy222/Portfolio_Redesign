@@ -9,7 +9,7 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    position: absolute;
+    position: relative;
 }
 
 #projectNav a, #projectNav a:link, #projectNav a:visited{
@@ -29,18 +29,6 @@
     display: inline;
     font-size: 2em;
     padding-right: 2rem;
-}
-
-#divider {
-    color: white;
-    text-decoration: none;
-    user-select: none;
-    font-family: 'tt-commons-pro', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    position: relative;
-    transition: none;
-    list-style-type: none;
 }
 
 #projectNav {

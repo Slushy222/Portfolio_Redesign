@@ -1,0 +1,28 @@
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100vw;
+    height: 10em;
+    padding: 12em 7vw 12em;
+    z-index: 800;
+}
+
+footer p, footer p a:link, footer p a:visited {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    font-family: 'tt-commons-pro', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    position: relative;
+    transition: none;
+    font-size: 2em;
+    transition: color .25s ease-in-out;
+}
+
+footer p a:hover, footer p a:link:hover, footer p a:visited:hover {
+    color: rgb(131, 131, 131);
+}
