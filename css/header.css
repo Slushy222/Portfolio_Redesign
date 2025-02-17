@@ -80,7 +80,7 @@ body {
     transition: none;
 }
 
-#webTitle:hover, #webTitle:hover a:link, #webTitle:hover a:visited {
+#webTitle:hover, #webTitle:hover a:link, #webTitle:hover a:visited, #webTitle.open:hover, #webTitle.open:hover a:link, #webTitle.open:hover a:visited {
     color: rgb(131, 131, 131);
     animation: fontChange 1s steps(1) forwards, fontRevert 0.2s steps(1) forwards;
     animation-delay: 0s, 2s;
