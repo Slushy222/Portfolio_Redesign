@@ -21,6 +21,7 @@ footer p, footer p a:link, footer p a:visited {
     transition: none;
     font-size: 2em;
     transition: color .25s ease-in-out;
+    line-height: 1em;
 }
 
 footer p a:hover, footer p a:link:hover, footer p a:visited:hover {
