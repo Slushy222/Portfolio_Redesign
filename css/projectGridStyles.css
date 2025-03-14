@@ -10,6 +10,18 @@
     width: 100vw;
     display: flex;
     position: relative;
+    flex-direction: column;
+}
+
+#projectGridContainer {
+    padding: 5em 7vw 5em;
+}
+
+#projectGridCell {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
 }
 
 #projectNav a, #projectNav a:link, #projectNav a:visited{
