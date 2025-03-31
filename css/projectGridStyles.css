@@ -15,13 +15,20 @@
 
 #projectGridContainer {
     padding: 5em 7vw 5em;
+    display: flex;
+    
+    gap: 2em;
+    transition: all 0.3s ease;
 }
 
 #projectGridCell {
     position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
     height: 100px;
     width: 100px;
-    background-color: aqua;
+    margin-bottom: 10px;
+    background-color: rgb(126, 126, 126);
 }
 
 #projectNav a, #projectNav a:link, #projectNav a:visited{

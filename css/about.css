@@ -1,5 +1,38 @@
+:root {
+    font-size: 10px;
+}
+
+
 main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+#aboutContainer {
+    display: flex;
+    flex-direction: row;
+    padding: 12em 7vw 5em;
+}
+
+#taylorImage {
+    width: 130vw;
+    height: 80vh;
+    background-color: rgb(145, 145, 145);
+    margin-right: 5em;
+    overflow: hidden;
+}
+
+#artistDescription {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    font-family: 'tt-commons-pro', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2rem;
+    position: relative;
+    transition: none;
+    
+
 }
