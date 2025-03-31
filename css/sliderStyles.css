@@ -169,6 +169,12 @@ body {
   left: 6em;
 }
 
+#type3 article {
+  bottom: 7em;
+  left: 5em;
+  width: auto;
+}
+
 #type1, #type2, #type3 {
   font-family: 'tt-commons-pro', sans-serif;
   font-weight: 700;
@@ -185,6 +191,11 @@ body {
 
 #type2 h2 {
   font-family: 'argent-pixel-cf', serif;
+  font-weight: 400;
+}
+
+#type3 h2 {
+  font-family: 'proxima-nova-wide', sans-serif;
   font-weight: 400;
 }
 
