@@ -83,6 +83,7 @@ body {
   object-fit: cover;
   pointer-events: none;
   user-select: none;
+  overflow: auto;
 }
 
 .slide img {
@@ -91,6 +92,7 @@ body {
   object-fit: cover;
   pointer-events: none;
   user-select: none;
+  overflow: auto;
 }
 
 /* slider navigation */
