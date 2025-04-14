@@ -53,18 +53,6 @@ body {
     z-index: 999;
 }
 
-#navBarContainer {
-    position: fixed;
-    display: flex;
-    width: 100vw;
-    height: 5em;
-    padding: 5em 7vw 5em;
-    background-color: rgb(27, 28, 28);
-    z-index: 890;
-    transition: all 0.4s ease-in-out;
-    transform: translateY(-100%);
-}
-
 #navBarContainer.open {
     transform: translateY(0%);
 }
