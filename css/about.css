@@ -20,7 +20,14 @@ main {
     height: 80vh;
     background-color: rgb(145, 145, 145);
     margin-right: 5em;
-    overflow: hidden;
+}
+
+#taylorImage img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
 }
 
 #artistDescription {
