@@ -71,6 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Special selectors
     bookSelect.addEventListener('click', () => resetAndActivateLink(1));
-    webSelect.addEventListener('click', () => resetAndActivateLink(5));
+    webSelect.addEventListener('click', () => resetAndActivateLink(4));
     designSelect.addEventListener('click', () => resetAndActivateLink(0));
 });

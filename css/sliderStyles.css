@@ -71,7 +71,6 @@ body {
   position: relative;
   flex: 1 0 100%;
   scroll-snap-align: start;
-
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;

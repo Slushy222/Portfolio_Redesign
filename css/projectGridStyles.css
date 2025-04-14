@@ -6,7 +6,7 @@
 /* project grid */
 
 .projectGridSection {
-    height: 100vh;
+    height: auto;
     width: 100vw;
     display: flex;
     position: relative;
@@ -16,19 +16,33 @@
 #projectGridContainer {
     padding: 5em 7vw 5em;
     display: flex;
-    gap: 2em;
     transition: all 0.3s ease;
+    flex-wrap: wrap;
 }
 
-#projectGridCell {
-    position: relative;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    height: 100px;
-    width: 100px;
-    margin-bottom: 10px;
-    background-color: rgb(126, 126, 126);
+.projectGridCell img {
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+    object-fit: cover;
+    pointer-events: none;
+    user-select: none;
 }
+
+#cainAndAbel img {
+    width: 45em;
+    min-height: 60em;
+}
+
+
+
+
+
+
+
+
+
+
+/* PROJECT NAV */
 
 #projectNav a, #projectNav a:link, #projectNav a:visited{
     color: white;
