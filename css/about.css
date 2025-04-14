@@ -15,16 +15,16 @@ main {
     padding: 12em 7vw 5em;
 }
 
-#taylorImage {
-    width: 130vw;
-    height: 80vh;
+#taylorImageContainer {
+    min-width: 130vw;
+    min-height: 80vh;
     background-color: rgb(145, 145, 145);
     margin-right: 5em;
 }
 
 #taylorImage img {
     width: 100%;
-    height: auto;
+    min-height: 100%;
     object-fit: cover;
     pointer-events: none;
     user-select: none;
