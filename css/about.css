@@ -31,8 +31,31 @@ main {
     font-weight: 300;
     font-style: normal;
     font-size: 2rem;
-    position: relative;
     transition: none;
-    
+}
 
+#whiteboard, #whiteboard:link, #whiteboard:visited{
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    transition: none;
+    cursor: pointer;
+    position: relative;
+}
+
+#whiteboard::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+}
+  
+#whiteboard:hover::before, #whiteboard:hover::before {
+    opacity: 1;
 }

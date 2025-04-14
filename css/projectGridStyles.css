@@ -16,7 +16,6 @@
 #projectGridContainer {
     padding: 5em 7vw 5em;
     display: flex;
-    
     gap: 2em;
     transition: all 0.3s ease;
 }
