@@ -20,6 +20,19 @@
     flex-wrap: wrap;
 }
 
+.projectIdentifier {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    z-index: 1;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    position: relative;
+    margin-right: 1em;
+    margin-top: 0px;
+    font-size: 1.8rem;
+}
+
 .projectGridCell img {
     aspect-ratio: 16 / 9;
     cursor: pointer;
