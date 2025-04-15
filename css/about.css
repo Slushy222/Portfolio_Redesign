@@ -12,6 +12,7 @@ main {
 #aboutContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 12em 7vw 5em;
 }
 
