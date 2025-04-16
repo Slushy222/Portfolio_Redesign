@@ -5,6 +5,21 @@
 
 /* project grid */
 
+#cursorText {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    z-index: 999;
+    transition: none;
+    position: absolute;
+    font-size: 1.8rem;
+    font-family: 'tt-commons-pro', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    white-space: nowrap;
+}
+
+
 .projectGridSection {
     height: auto;
     width: 100vw;
@@ -14,7 +29,7 @@
 }
 
 #projectGridContainer {
-    padding: 5em 7vw 5em;
+    padding: 3em 7vw 5em;
     display: flex;
     transition: all 0.3s ease;
     flex-wrap: wrap;
@@ -28,9 +43,15 @@
     transition: all 0.2s ease-in-out;
     display: flex;
     position: relative;
-    margin-right: 1em;
-    margin-top: 0px;
+    margin-top: 0.5em;
     font-size: 1.8rem;
+    font-family: 'tt-commons-pro', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.projectTitle {
+    margin-right: 1em;
 }
 
 .projectGridCell img {
@@ -41,8 +62,8 @@
 }
 
 #cainAndAbel img {
-    width: 45em;
-    min-height: 60em;
+    width: 65em;
+    min-height: 70em;
 }
 
 
