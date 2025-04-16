@@ -17,8 +17,8 @@ main {
 }
 
 #taylorImageContainer {
-    width: 130vw;
-    min-height: 80vh;
+    width: 230em;
+    min-height: 60em;
     background-color: rgb(145, 145, 145);
     margin-right: 5em;
 }
