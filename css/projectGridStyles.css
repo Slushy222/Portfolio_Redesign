@@ -37,7 +37,6 @@
     aspect-ratio: 16 / 9;
     cursor: pointer;
     object-fit: cover;
-    pointer-events: none;
     user-select: none;
 }
 
