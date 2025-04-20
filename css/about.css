@@ -9,6 +9,20 @@ main {
     justify-content: center;
 }
 
+#cursorTextAbout {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+    z-index: 999;
+    transition: none;
+    position: absolute;
+    font-size: 1.8rem;
+    font-family: 'tt-commons-pro', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    white-space: nowrap;
+}
+
 #aboutContainer {
     display: flex;
     flex-direction: row;
@@ -27,7 +41,6 @@ main {
     height: 100%;
     aspect-ratio: 16 / 16;
     object-fit: cover;
-    pointer-events: none;
     user-select: none;
     object-position: center 40%
 }
@@ -130,11 +143,11 @@ main {
         width: 100%;
         min-height: 40em;
         margin-right: 0;
-        margin-bottom: 5em;
+        margin-bottom: 3em;
     }
 
     #taylorImageContainer img {
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 16;
     }
     
     #aboutTypography {
