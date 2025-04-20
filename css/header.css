@@ -145,7 +145,7 @@ ul {
     z-index: 950;
     transition: all 0.4s ease-in-out;
     transform: translateY(-100%);
-    padding: 30em 7vw 20em;
+    padding: 30rem 7vw 20rem;
 }
 
 #dropdownNav.open {
@@ -256,13 +256,19 @@ ul {
     }
 }
 
-@media screen and (max-width: 80em) {
-    #dropdownNav {
-        padding: 20em 7vw 10em;
-    }
+@media screen and (max-width: 100em) {
     #designSelector, #aboutSelector {
         font-size: 12rem;
         line-height: 16rem;
+    }
+
+}
+
+
+@media screen and (max-width: 80em) {
+    #designSelector, #aboutSelector {
+        font-size: 8rem;
+        line-height: 12rem;
     }
 
 }
