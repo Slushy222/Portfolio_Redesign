@@ -255,3 +255,14 @@ ul {
         font-family: 'tt-commons-pro', sans-serif;
     }
 }
+
+@media screen and (max-width: 80em) {
+    #dropdownNav {
+        padding: 20em 7vw 10em;
+    }
+    #designSelector, #aboutSelector {
+        font-size: 12rem;
+        line-height: 16rem;
+    }
+
+}
