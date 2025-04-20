@@ -75,3 +75,30 @@ main {
 .aboutLinks:hover::before, .aboutLinks:hover::before {
     opacity: 1;
 }
+
+
+@media screen and (max-width: 40em) {
+    #aboutContainer {
+        flex-direction: column;
+        padding: 3em 5vw;
+    }
+    
+    #taylorImageContainer {
+        width: 100%;
+        min-height: 40em;
+        margin-right: 0;
+        margin-bottom: 3em;
+    }
+    
+    #aboutTypography {
+        min-height: auto;
+    }
+    
+    #artistDescription, #artistLinks {
+        padding-right: 0;
+    }
+    
+    #artistLinks {
+        margin-top: 3em;
+    }
+}
