@@ -80,7 +80,7 @@ main {
 @media screen and (max-width: 40em) {
     #aboutContainer {
         flex-direction: column;
-        padding: 0em 5vw;
+        padding: 0em 5vw 10rem;
         margin-top: 10em;
     }
     
@@ -104,10 +104,16 @@ main {
     }
 }
 
+@media screen and (max-width: 100em) {
+    #aboutContainer {
+        margin-top: 20em;
+    }
+}
+
 @media screen and (max-width: 80em) {
     #aboutContainer {
         flex-direction: column;
-        padding: 0em 7vw;
+        padding: 0em 7vw 10rem;
         margin-top: 10em;
     }
     
