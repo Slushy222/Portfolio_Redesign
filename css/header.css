@@ -259,7 +259,7 @@ ul {
 @media screen and (max-width: 100em) {
     #designSelector, #aboutSelector {
         font-size: 12rem;
-        line-height: 16rem;
+        line-height: 14rem;
     }
 
 }
