@@ -132,6 +132,10 @@ main {
         margin-right: 0;
         margin-bottom: 5em;
     }
+
+    #taylorImageContainer img {
+        aspect-ratio: 16 / 9;
+    }
     
     #aboutTypography {
         min-height: auto;
