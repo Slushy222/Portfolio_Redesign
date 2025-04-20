@@ -80,7 +80,7 @@ main {
 @media screen and (max-width: 40em) {
     #aboutContainer {
         flex-direction: column;
-        padding: 3em 5vw;
+        padding: 10em 5vw;
     }
     
     #taylorImageContainer {
@@ -106,14 +106,14 @@ main {
 @media screen and (max-width: 80em) {
     #aboutContainer {
         flex-direction: column;
-        padding: 3em 5vw;
+        padding: 10em 7vw;
     }
     
     #taylorImageContainer {
         width: 100%;
-        min-height: 40em;
+        min-height: 60em;
         margin-right: 0;
-        margin-bottom: 3em;
+        margin-bottom: 5em;
     }
     
     #aboutTypography {
@@ -125,6 +125,6 @@ main {
     }
     
     #artistLinks {
-        margin-top: 3em;
+        margin-top: 5em;
     }
 }
