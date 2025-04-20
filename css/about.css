@@ -80,7 +80,8 @@ main {
 @media screen and (max-width: 40em) {
     #aboutContainer {
         flex-direction: column;
-        padding: 10em 5vw;
+        padding: 0em 5vw;
+        margin-top: 10em;
     }
     
     #taylorImageContainer {
@@ -106,7 +107,8 @@ main {
 @media screen and (max-width: 80em) {
     #aboutContainer {
         flex-direction: column;
-        padding: 10em 7vw;
+        padding: 0em 7vw;
+        margin-top: 10em;
     }
     
     #taylorImageContainer {
