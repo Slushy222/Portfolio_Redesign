@@ -19,16 +19,18 @@ main {
 #taylorImageContainer {
     width: 230em;
     min-height: 60em;
-    background-color: rgb(145, 145, 145);
+    /* background-color: rgb(145, 145, 145); */
     margin-right: 5em;
 }
 
-#taylorImage img {
+#taylorImageContainer img {
     width: 100%;
-    min-height: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 16;
     object-fit: cover;
     pointer-events: none;
     user-select: none;
+    object-position: center 40%
 }
 
 #aboutTypography {
@@ -50,13 +52,21 @@ main {
     padding-right: 5em;
 }
 
-.aboutLinks, .aboutLinks:link, .aboutLinks:visited{
+.aboutLinks, .aboutLinks:link, .aboutLinks:visited, .aboutContact, .aboutContact:link, .aboutContact:visited{
     color: white;
     text-decoration: none;
     user-select: none;
     transition: none;
     cursor: pointer;
     position: relative;
+}
+
+.aboutContact {
+    transition: color 0.2s ease-in-out;
+}
+
+.aboutContact:hover {
+    color: rgb(131, 131, 131);
 }
 
 .aboutLinks::before {
