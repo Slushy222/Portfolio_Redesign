@@ -78,7 +78,7 @@ main {
 }
 
 .aboutContact:hover {
-    color: rgb(131, 131, 131);
+    color: blue;
 }
 
 .aboutLinks::before {
