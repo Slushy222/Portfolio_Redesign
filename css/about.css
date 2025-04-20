@@ -12,7 +12,6 @@ main {
 #aboutContainer {
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     padding: 0em 7vw 5em;
 }
 
@@ -40,7 +39,7 @@ main {
     justify-content: space-between;
 }
 
-#artistDescription, #artistLinks {
+#artistDescription, #artistLinks, #shelby {
     color: white;
     text-decoration: none;
     user-select: none;
@@ -52,7 +51,7 @@ main {
     padding-right: 5em;
 }
 
-.aboutLinks, .aboutLinks:link, .aboutLinks:visited, .aboutContact, .aboutContact:link, .aboutContact:visited{
+.aboutLinks, .aboutLinks:link, .aboutLinks:visited, .aboutContact, .aboutContact:link, .aboutContact:visited {
     color: white;
     text-decoration: none;
     user-select: none;
