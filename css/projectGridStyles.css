@@ -19,7 +19,6 @@
     white-space: nowrap;
     will-change: transform;
     pointer-events: none;
-    /* mix-blend-mode: difference; */
 }
 
 .projectGridSection {
@@ -150,9 +149,6 @@
     height: 5em;
     padding: 10em var(--grid-padding) 5em;
     z-index: 999;
-    /* Add for better performance during scrolling */
-    backface-visibility: hidden;
-    transform: translateZ(0);
 }
 
 #projectNav #allTag {
@@ -191,10 +187,6 @@
     #projectGridContainer {
         grid-template-columns: 1fr;
         grid-auto-rows: 40em;
-    }
-
-    .projectGridCell {
-        margin-bottom: 200em;
     }
     
     /* Make ALL cells span a single column */
