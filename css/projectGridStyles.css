@@ -148,7 +148,7 @@
     width: 100%;
     height: 5em;
     padding: 10em var(--grid-padding) 5em;
-    z-index: 999;
+    z-index: 800;
 }
 
 #projectNav #allTag {
