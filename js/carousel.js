@@ -1,5 +1,7 @@
 class Carousel {
     constructor(sliderElement, navElement, interval = 6000) {
+        // Throttle scroll events for better performance
+        this.scrollThrottleTimer = null;
         this.slider = sliderElement;
         this.nav = navElement;
         this.interval = interval;
@@ -23,6 +25,10 @@ class Carousel {
         this.init();
         this.visibilityChangeHandler = this.handleVisibilityChange.bind(this); 
         document.addEventListener('visibilitychange', this.visibilityChangeHandler);
+        
+        // Add scroll event handler
+        this.scrollHandler = this.handleScroll.bind(this);
+        window.addEventListener('scroll', this.scrollHandler);
     }
 
     handleVisibilityChange() { 
@@ -32,12 +38,37 @@ class Carousel {
             this.startAutoRotation(); 
         } 
     }
-
+    
+    // New method to handle scroll events with throttling
+    // handleScroll() {
+    //     // Throttle scroll events to improve performance
+    //     if (!this.scrollThrottleTimer) {
+    //         this.scrollThrottleTimer = setTimeout(() => {
+    //             this.scrollThrottleTimer = null;
+                
+    //             // Check scroll position after throttling
+    //             if (window.scrollY > 0) {
+    //                 // User has scrolled down, stop the carousel
+    //                 this.stopAutoRotation();
+    //             } else {
+    //                 // User is at the top of the page, resume carousel
+    //                 this.startAutoRotation();
+    //             }
+    //         }, 100); // 100ms throttle
+    //     }
+    // }
 
     init() {
         this.updateNavigation();
+        
+        // Add will-change to improve performance
+        this.slider.style.willChange = 'transform';
         this.slider.classList.add('with-transition');
-        this.startAutoRotation();
+        
+        // Use requestAnimationFrame for smoother performance
+        requestAnimationFrame(() => {
+            this.startAutoRotation();
+        });
         
         this.navDots.forEach((dot, index) => {
             dot.addEventListener('click', (e) => {
@@ -136,7 +167,8 @@ class Carousel {
     }
 
     setSliderPosition(translate) {
-        this.slider.style.transform = `translateX(${translate}px)`;
+        // Force hardware acceleration with translateZ(0)
+        this.slider.style.transform = `translateX(${translate}px) translateZ(0)`;
     }
 
     goToSlide(index, resetTimer = false) {
@@ -175,7 +207,7 @@ class Carousel {
     }
 
     startAutoRotation() {
-        if (!document.hidden) {
+        if (!document.hidden && window.scrollY === 0) { // Only start if at top of page
             this.stopAutoRotation();
             this.rotationInterval = setInterval(() => this.nextSlide(), this.interval);
         }
@@ -196,22 +228,40 @@ class Carousel {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sliderElement = document.querySelector('.slider');
-    const navElement = document.querySelector('.sliderNav');
-    const featuredTypes = document.querySelectorAll('.featuredType');
-    
-    const carousel = new Carousel(sliderElement, navElement, 6000);
+    // Defer non-essential initialization to next frame
+    window.requestAnimationFrame(() => {
+        const sliderElement = document.querySelector('.slider');
+        const navElement = document.querySelector('.sliderNav');
+        const featuredTypes = document.querySelectorAll('.featuredType');
+        
+        // Preload images to prevent stuttering
+        const preloadImages = () => {
+            const slideImages = sliderElement.querySelectorAll('img');
+            slideImages.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    const image = new Image();
+                    image.src = src;
+                }
+            });
+        };
+        
+        // Preload images before initializing carousel
+        preloadImages();
+        
+        const carousel = new Carousel(sliderElement, navElement, 6000);
 
-    // featuredTypes.forEach(featured => {
-    //     const article = featured.querySelector('.frontPageBlock');
-    //     if (article) {
-    //         article.addEventListener("mouseover", function() {
-    //             carousel.stopAutoRotation();
-    //         });
-              
-    //         article.addEventListener("mouseout", function() {
-    //             carousel.startAutoRotation();
-    //         });
-    //     }
-    // });
+        // featuredTypes.forEach(featured => {
+        //     const article = featured.querySelector('.frontPageBlock');
+        //     if (article) {
+        //         article.addEventListener("mouseover", function() {
+        //             carousel.stopAutoRotation();
+        //         });
+        //           
+        //         article.addEventListener("mouseout", function() {
+        //             carousel.startAutoRotation();
+        //         });
+        //     }
+        // });
+    });
 });

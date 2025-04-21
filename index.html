@@ -5,18 +5,23 @@
         <link rel="icon" type="image/x-icon" href="images/favicon/ts_FaviconLARGE.svg">
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta https-equiv="X-UA-Compatible" content="ie=edge">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="author" content="Taylor Sampson">
         <meta name="description" content="Taylor Sampson is a Graphic Designer working in Chattanooga, TN.">
         <meta name="keywords" content="Taylor Sampson, artist, developer, designer, graphic designer, ui, ux, web, print, analog, portfolio, chattanooga">
 
-        <!-- TTCommonsPro reference from Adobe Fonts Below (Update when I have a personal subscription) -->
-        <link rel="stylesheet" href="https://use.typekit.net/ucr4obs.css">
-        <link rel="stylesheet" href="fonts/Avenir/avenir.css">
-        <link rel="stylesheet" href="css/header.css"/>
-        <link rel="stylesheet" href="css/sliderStyles.css"/>
-        <link rel="stylesheet" href="css/projectGridStyles.css"/>
-        <link rel="stylesheet" href="css/footer.css"/>
+         <!-- Preload critical assets -->
+         <!-- <link rel="preload" href="js/carousel.js" as="script"> -->
+         <link rel="preload" href="images/featuredImages/CainandAbel_featured.webp" as="image" fetchpriority="high">
+         
+         <!-- Load CSS with appropriate priorities -->
+         <link rel="stylesheet" href="https://use.typekit.net/ucr4obs.css">
+         <link rel="stylesheet" href="fonts/Avenir/avenir.css">
+         <link rel="stylesheet" href="css/header.css"/>
+         <link rel="stylesheet" href="css/sliderStyles.css"/>
+         <!-- Defer non-critical CSS -->
+         <link rel="stylesheet" href="css/projectGridStyles.css" media="print" onload="this.media='all'"/>
+         <link rel="stylesheet" href="css/footer.css" media="print" onload="this.media='all'"/>
     </head>
     
     <body>
@@ -50,7 +55,7 @@
                                 <article class="frontPageBlock">
                                     <h2><a href="#">Cain and Abel</a></h2>
                                     <div class="featuredTagline">
-                                        <p class="featuredCategory" id="bookLink"><a href="#designOverview">BOOKS</a></p>
+                                        <p class="featuredCategory" id="bookLink" data-category="books"><a href="#designOverview">BOOKS</a></p>
                                         <p>2025</p>  
                                     </div>
                                 </article>
@@ -62,7 +67,7 @@
                                 <article class="frontPageBlock">
                                     <h2><a href="#">A Climber's Guide to Chattanooga</a></h2>
                                     <div class="featuredTagline">
-                                        <p class="featuredCategory" id="bookLink"><a href="#designOverview">BOOKS</a></p>
+                                        <p class="featuredCategory" id="bookLink" data-category="books"><a href="#designOverview">BOOKS</a></p>
                                         <p>2024</p> 
                                     </div>
                                 </article>                                
@@ -74,8 +79,8 @@
                                 <article class="frontPageBlock">
                                     <h2><a href="#">TO BE,<br><br><br><i>TO HAVE</i>,<br>TO MATURE.</a></h2>
                                     <div class="featuredTagline">
-                                        <p class="featuredCategory" id="webLink"><a href="#designOverview">WEB/CODE</a></p>
-                                        <p>2024-2025</p>
+                                        <p class="featuredCategory" id="webLink" data-category="web"><a href="#designOverview">WEB/CODE</a></p>
+                                        <p>2024–2025</p>
                                     </div>
                                     <!-- <div class="featuredTagline">
                                         <p id="collab">Made in collaboration with&nbsp;</p>
@@ -104,18 +109,69 @@
                     </ul>
                 </nav>
                 <div id="projectGridContainer">
+                    
+                    <!-- CAIN AND ABEL -->
                     <div class="projectGridCell" id="cainAndAbel">
-                        <a href="#"><img src="images/projectGrid/cainFeaturedCell.webp" alt="#"></a>
+                        <a href="#"><img src="images/projectGrid/cainFeaturedCell.webp" alt="#" loading="lazy"></a>
                         <article class="projectIdentifier" data-category="books">
                             <p class="projectTitle">Cain and Abel</p>
                             <p>2025</p>
                         </article>
                     </div>
 
+                    <!-- SEQUOYA REVIEW -->
+                    <div class="projectGridCell" id="sequoya">
+                        <a href="#"><img src="images/projectGrid/sequoyaFeaturedCell.webp" alt="#" loading="lazy"></a>
+                        <article class="projectIdentifier" data-category="books">
+                            <p class="projectTitle">Sequoya Review</p>
+                            <p>2025</p>
+                        </article>
+                    </div>
 
+                    <!-- CLIMBERS GUIDE -->
+                    <div class="projectGridCell" id="climbersGuide">
+                        <a href="#"><img src="images/projectGrid/climbersGuideFeaturedCell.webp" alt="#" loading="lazy"></a>
+                        <article class="projectIdentifier" data-category="books">
+                            <p class="projectTitle">A Climber's Guide to Chattanooga</p>
+                            <p>2024</p>
+                        </article>
+                    </div>
 
+                    <!-- TO BE TO HAVE TO MATURE -->
+                    <div class="projectGridCell" id="toBe">
+                        <a href="#"><img src="images/projectGrid/pixelsFeaturedCell.webp" alt="#" loading="lazy"></a>
+                        <article class="projectIdentifier" data-category="web">
+                            <p class="projectTitle">TO BE, TO HAVE, TO MATURE</p>
+                            <p>2024–2025</p>
+                        </article>
+                    </div>
 
+                    <!-- ANIMATION -->
+                    <div class="projectGridCell" id="animation">
+                        <a href="#"><img src="images/projectGrid/scientistFeaturedCell.webp" alt="#" loading="lazy"></a>
+                        <article class="projectIdentifier" data-category="video">
+                            <p class="projectTitle">Animation</p>
+                            <p>2023</p>
+                        </article>
+                    </div>
 
+                    <!-- SEEKING ACCEPTANCE -->
+                    <div class="projectGridCell" id="seekingAcceptance">
+                        <a href="#"><img src="images/projectGrid/seekingAcceptanceFeaturedCell-01.webp" alt="#" loading="lazy"></a>
+                        <article class="projectIdentifier" data-category="web">
+                            <p class="projectTitle">Seeking Acceptance</p>
+                            <p>2024</p>
+                        </article>
+                    </div>
+
+                    <!-- ROOM SERVICE STYLE GUIDE -->
+                    <div class="projectGridCell" id="roomService">
+                        <a href="#"><img src="images/projectGrid/patternFeaturedCell.webp" alt="#" loading="lazy"></a>
+                        <article class="projectIdentifier" data-category="branding">
+                            <p class="projectTitle">Room Service Style Guide</p>
+                            <p>2023</p>
+                        </article>
+                    </div>
                 </div>
                 <script src="js/textFollow.js"></script>
                 <script src="js/projectGrid.js"></script>

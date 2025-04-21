@@ -1,76 +1,83 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('#projectNav a');
-    const bookSelect = document.getElementById('bookLink');
-    const webSelect = document.getElementById('webLink');
-    const designSelect = document.getElementById('designNav');
-    const gridItems = document.querySelectorAll('#projectGridContainer article');
+    // Get all navigation elements
+    const allTag = document.getElementById('allTag');
+    const booksTag = document.getElementById('booksTag');
+    const videoTag = document.getElementById('videoTag');
+    const brandingTag = document.getElementById('brandingTag');
+    const webTag = document.getElementById('webTag');
     
-    function resetAndActivateLink(index) {
-        // Remove 'active' class from all links
-        navLinks.forEach(l => l.classList.remove('active'));
+    // Get all project cells
+    const projectCells = document.querySelectorAll('.projectGridCell');
+    
+    // Function to filter projects by category
+    function filterProjects(category) {
+        projectCells.forEach(cell => {
+            const projectIdentifier = cell.querySelector('.projectIdentifier');
+            const projectCategory = projectIdentifier.getAttribute('data-category');
+            
+            if (category === 'all' || projectCategory === category) {
+                cell.style.display = ''; // Show
+            } else {
+                cell.style.display = 'none'; // Hide
+            }
+        });
         
-        // Add 'active' class to specified link
-        if (navLinks[index]) {
-            navLinks[index].classList.add('active');
-            
-            // Get the filter value from the active link's parent li id
-            const filterValue = navLinks[index].parentElement.id.replace('Tag', '').toLowerCase();
-            
-            // Filter grid items
-            filterGridItems(filterValue);
-        }
-    }
-    
-    function filterGridItems(category) {
-        // Handle all items case
+        // Add active class to the selected nav item
+        document.querySelectorAll('#projectNav li a').forEach(link => {
+            link.classList.remove('active');
+        });
+        
         if (category === 'all') {
-            gridItems.forEach(item => item.style.display = '');
-        } else {
-            // Filter items based on data-category attribute
-            gridItems.forEach(item => {
-                const itemCategories = (item.getAttribute('data-category') || '').split(' ');
-                if (itemCategories.includes(category)) {
-                    item.style.display = '';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-        
-        // Update grid layout based on visible items
-        updateGridLayout();
-    }
-    
-    function updateGridLayout() {
-        const container = document.getElementById('projectGridContainer');
-        const visibleItems = Array.from(gridItems).filter(item => item.style.display !== 'none');
-        
-        // Adjust grid layout based on number of visible items
-        if (visibleItems.length <= 2) {
-            container.style.gridTemplateColumns = 'repeat(1, 1fr)';
-        } else if (visibleItems.length <= 4) {
-            container.style.gridTemplateColumns = 'repeat(2, 1fr)';
-        } else {
-            container.style.gridTemplateColumns = 'repeat(3, 1fr)';
+            allTag.querySelector('a').classList.add('active');
+        } else if (category === 'books') {
+            booksTag.querySelector('a').classList.add('active');
+        } else if (category === 'video') {
+            videoTag.querySelector('a').classList.add('active');
+        } else if (category === 'branding') {
+            brandingTag.querySelector('a').classList.add('active');
+        } else if (category === 'web') {
+            webTag.querySelector('a').classList.add('active');
         }
     }
     
-    // Initial state
-    if (navLinks.length > 0) {
-        navLinks[0].classList.add('active');
-        const initialCategory = navLinks[0].parentElement.id.replace('Tag', '').toLowerCase();
-        filterGridItems(initialCategory);
-    }
+    // Event listeners for navigation
+    allTag.addEventListener('click', function() {
+        filterProjects('all');
+    });
     
-    // Original nav links click handler
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            resetAndActivateLink(Array.from(navLinks).indexOf(this));
+    booksTag.addEventListener('click', function() {
+        filterProjects('books');
+    });
+    
+    videoTag.addEventListener('click', function() {
+        filterProjects('video');
+    });
+    
+    brandingTag.addEventListener('click', function() {
+        filterProjects('branding');
+    });
+    
+    webTag.addEventListener('click', function() {
+        filterProjects('web');
+    });
+    
+    // For featured links in the carousel
+    const featuredLinks = document.querySelectorAll('.featuredCategory');
+    featuredLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            const category = this.getAttribute('data-category');
+            if (category) {
+                filterProjects(category);
+                
+                // Scroll to the project grid section
+                document.getElementById('designOverview').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
     
-    // Special selectors
-    bookSelect.addEventListener('click', () => resetAndActivateLink(1));
-    webSelect.addEventListener('click', () => resetAndActivateLink(4));
-    designSelect.addEventListener('click', () => resetAndActivateLink(0));
+    // Set "All" as active by default
+    filterProjects('all');
 });
