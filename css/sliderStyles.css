@@ -239,9 +239,13 @@ body {
   #type1 article, 
   #type2 article, 
   #type3 article {
-    bottom: 6em; /* Increased bottom spacing for larger screens */
+    bottom: 3em; /* Increased bottom spacing for larger screens */
     left: 4em;    /* More left padding on larger screens */
   }
+  #type1, #type2, #type3 {
+    font-size: 6em
+  }
+
 }
 
 
