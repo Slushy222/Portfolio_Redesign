@@ -241,7 +241,6 @@ body {
   #type3 article {
     bottom: 6em; /* Increased bottom spacing for larger screens */
     left: 4em;    /* More left padding on larger screens */
-    width: 70%;   /* Slightly narrower width relative to the larger screen */
   }
 }
 
