@@ -1,0 +1,143 @@
+:root {
+    font-size: 10px;
+    --grid-gap: 3rem;
+    --side-padding: 7vw;
+    --typography-width: 30vw;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'tt-commons-pro', sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    padding: 15rem var(--side-padding) 10rem;
+    box-sizing: border-box;
+}
+
+/* Typography Section - Left Side */
+.projectTypography {
+    position: sticky;
+    top: 15rem;
+    width: var(--typography-width);
+    padding-right: 4rem;
+    height: fit-content;
+    color: white;
+}
+
+.projectTypography h2.projectTitle {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 2rem 0;
+    line-height: 1.1;
+}
+
+.projectTypography p.projectMedium {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 0 0 4rem 0;
+    opacity: 0.8;
+}
+
+.projectTypography p.projectStatement {
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.projectTypography a:link, .projectTypography a:visited {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.projectTypography a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: white;
+    bottom: -3px;
+    left: 0;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    will-change: opacity;
+}
+
+.projectTypography a:hover::before {
+    opacity: 1;
+}
+
+/* Image Grid - Right Side */
+.projectImages {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap);
+}
+
+.projectImages img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Image variations */
+.projectImages .fullWidth {
+    grid-column: 1 / -1;
+}
+
+.projectImages .imageCaption {
+    font-size: 1.6rem;
+    opacity: 0.7;
+    margin-top: 1rem;
+    font-weight: 300;
+}
+
+/* Spacing and section breaks */
+.sectionBreak {
+    margin: 8rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    grid-column: 1 / -1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 80em) {
+    main {
+        flex-direction: column;
+        padding-top: 10rem;
+    }
+
+    .projectTypography {
+        position: relative;
+        top: 0;
+        width: 100%;
+        padding-right: 0;
+        margin-bottom: 5rem;
+    }
+
+    .projectImages {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    :root {
+        --grid-gap: 2rem;
+    }
+
+    .projectTypography h2.projectTitle {
+        font-size: 3.6rem;
+    }
+
+    .projectTypography p.projectStatement {
+        font-size: 1.8rem;
+    }
+}

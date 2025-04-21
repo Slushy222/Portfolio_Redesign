@@ -258,7 +258,7 @@ body {
   /* Reposition articles */
   #type1 article {
     bottom: 8em;
-    left: 2em;
+    left: 0.5em;
     width: 80%;
   }
   
