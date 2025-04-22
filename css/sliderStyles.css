@@ -258,19 +258,19 @@ body {
   /* Reposition articles */
   #type1 article {
     bottom: 8em;
-    left: 0.5em;
+    left: 1.5em;
     width: 60%;
   }
   
   #type2 article {
     bottom: 6em;
-    left: 4em;
+    left: 2em;
     width: 80%;
   }
   
   #type3 article {
     bottom: 8em;
-    left: 4em;
+    left: 1.5em;
     width: 80%;
   }
   
