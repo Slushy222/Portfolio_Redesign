@@ -249,7 +249,42 @@ body {
 }
 
 
-
+@media screen and (max-width: 80em) {
+  /* Adjust font sizes */
+  #type1, #type2, #type3 {
+    font-size: 4em; /* Reduce from 8em to 4em */
+  }
+  
+  /* Reposition articles */
+  #type1 article {
+    bottom: 8em;
+    left: 1.5em;
+    width: 60%;
+  }
+  
+  #type2 article {
+    bottom: 6em;
+    left: 2em;
+    width: 80%;
+  }
+  
+  #type3 article {
+    bottom: 8em;
+    left: 1.5em;
+    width: 80%;
+  }
+  
+  /* Adjust featured type paragraphs */
+  .featuredType p {
+    font-size: 1.4rem;
+  }
+  
+  /* Adjust slider navigation */
+  .frontSliderContainer .sliderWrapper .sliderNav {
+    bottom: 2em;
+    left: 5vw;
+  }
+}
 
 /* Additional media query for very small screens */
 @media screen and (max-width: 40em) {
