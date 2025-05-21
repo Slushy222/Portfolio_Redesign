@@ -1,6 +1,6 @@
 :root {
     font-size: 10px;
-    --grid-gap: 8em;
+    --grid-gap: 4.5em;
     --grid-padding: 7vw;
 }
 
@@ -35,6 +35,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 60em;
     gap: var(--grid-gap);
+    row-gap: 6em;
     width: 100%;
     box-sizing: border-box;
 }
