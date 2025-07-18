@@ -193,7 +193,7 @@
     
     /* Make ALL cells span a single column */
     #cainAndAbel, #sequoya, #climbersGuide, #toBe, 
-    #animation, #seekingAcceptance, #roomService {
+    #animation, #seekingAcceptance, #moonPieStout {
         grid-column: span 1;
         grid-row: span 1;
     }
