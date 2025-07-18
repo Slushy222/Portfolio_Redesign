@@ -182,7 +182,7 @@
 
 @media screen and (max-width: 80em) {
     :root {
-        --grid-gap: 6em;
+        --grid-gap: 1.5em;
         --grid-padding: 7vw;
     }
     
