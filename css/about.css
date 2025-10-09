@@ -52,7 +52,7 @@ main {
     justify-content: space-between;
 }
 
-#artistDescription, #artistLinks, #shelby {
+#artistDescription, #artistLinks {
     color: white;
     text-decoration: none;
     user-select: none;
