@@ -20,7 +20,35 @@ body {
     overflow-x: hidden;
     user-select: none;
 }
-  
+
+/* scrollbar!!! */
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(131, 131, 131);
+  /* background: transparent; */
+  transition: scrollbar-color 0.2s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+
+
 
 /* title elements */
 
