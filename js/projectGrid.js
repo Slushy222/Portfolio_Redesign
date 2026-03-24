@@ -12,15 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to filter projects by category
     function filterProjects(category) {
         projectCells.forEach(cell => {
-            const projectIdentifier = cell.querySelector('.projectIdentifier');
-            const projectCategory = projectIdentifier.getAttribute('data-category');
+            const projectCategory = cell.getAttribute('data-category'); // ← read directly from cell
             
             if (category === 'all' || projectCategory === category) {
-                cell.style.display = ''; // Show
+                cell.style.display = '';
             } else {
-                cell.style.display = 'none'; // Hide
+                cell.style.display = 'none';
             }
         });
+
         
         // Add active class to the selected nav item
         document.querySelectorAll('#projectNav li a').forEach(link => {

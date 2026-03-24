@@ -38,25 +38,10 @@ class Carousel {
             this.startAutoRotation(); 
         } 
     }
-    
-    // New method to handle scroll events with throttling
-    // handleScroll() {
-    //     // Throttle scroll events to improve performance
-    //     if (!this.scrollThrottleTimer) {
-    //         this.scrollThrottleTimer = setTimeout(() => {
-    //             this.scrollThrottleTimer = null;
-                
-    //             // Check scroll position after throttling
-    //             if (window.scrollY > 0) {
-    //                 // User has scrolled down, stop the carousel
-    //                 this.stopAutoRotation();
-    //             } else {
-    //                 // User is at the top of the page, resume carousel
-    //                 this.startAutoRotation();
-    //             }
-    //         }, 100); // 100ms throttle
-    //     }
-    // }
+
+    isMobile() {
+        return window.matchMedia('(pointer: coarse)').matches;
+    }
 
     init() {
         this.updateNavigation();
@@ -80,14 +65,16 @@ class Carousel {
         });
     
         // Drag event listeners
-        this.slider.addEventListener('mousedown', this.dragStart.bind(this));
-        this.slider.addEventListener('mousemove', this.drag.bind(this));
-        this.slider.addEventListener('mouseup', this.dragEnd.bind(this));
-        this.slider.addEventListener('mouseleave', this.dragEnd.bind(this));
+        if (!this.isMobile()) {
+            this.slider.addEventListener('mousedown', this.dragStart.bind(this));
+            this.slider.addEventListener('mousemove', this.drag.bind(this));
+            this.slider.addEventListener('mouseup', this.dragEnd.bind(this));
+            this.slider.addEventListener('mouseleave', this.dragEnd.bind(this));
+        }
         
-        this.slider.addEventListener('touchstart', this.dragStart.bind(this));
-        this.slider.addEventListener('touchmove', this.drag.bind(this));
-        this.slider.addEventListener('touchend', this.dragEnd.bind(this));
+        // this.slider.addEventListener('touchstart', this.dragStart.bind(this));
+        // this.slider.addEventListener('touchmove', this.drag.bind(this));
+        // this.slider.addEventListener('touchend', this.dragEnd.bind(this));
         
         this.slider.addEventListener('contextmenu', e => e.preventDefault());
     
