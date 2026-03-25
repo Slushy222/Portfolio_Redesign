@@ -30,7 +30,7 @@
 }
 
 #projectGridContainer {
-    padding: 3em var(--grid-padding) 5em;
+    padding: 3.5em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 60em;
@@ -208,6 +208,10 @@
         justify-content: flex-start;
         padding: 10em 7vw 5em;
         height: 4em;
+    }
+
+    #projectNav ul {
+        margin: auto;
     }
     
     #projectNav li {
