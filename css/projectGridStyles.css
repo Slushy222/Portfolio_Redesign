@@ -30,7 +30,7 @@
 }
 
 #projectGridContainer {
-    padding: 3.5em;
+    padding: 2.5em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 60em;
@@ -189,6 +189,7 @@
     #projectGridContainer {
         grid-template-columns: 1fr;
         grid-auto-rows: 40em;
+        padding: 1em;
     }
     
     /* Make ALL cells span a single column */
