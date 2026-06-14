@@ -1,10 +1,12 @@
-html:not([data-scroll='0']) {
+@media screen and (max-width: 80em) {
+    html:not([data-scroll='0']) {
     #topNavBar.navClosed {
-        width: 40%;
-        padding: 1em 2vw 1em;
-        margin-top: 6em;
+        width: 70%;
+        padding: 2em 8vw 2em;
+         margin-top: 6em;
         /* background-color: rgba(255, 255, 255, 0.144); */
         border-radius: 100em;
         backdrop-filter: blur(150px);
     }
+}
 }
