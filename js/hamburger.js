@@ -4,10 +4,16 @@ const dropDown = document.getElementById("dropdownNav");
 const designSelector = document.getElementById("designSelector");
 const designNav = document.getElementById("designNav");
 const aboutNav = document.getElementById("aboutNav");
+const blurNav = document.getElementById("topNavBar");
 const navContainer = document.getElementById("navBarContainer");
 
 let menuOpen = false;
 
+document.addEventListener('DOMContentLoaded', () => {
+    if(!menuOpen) {
+        blurNav.classList.add('navClosed')
+    }
+});
 
 hamburger.addEventListener('click', () => {
     if (!menuOpen) {
@@ -17,6 +23,7 @@ hamburger.addEventListener('click', () => {
         dropDown.classList.add('open')
     } else {
         closeNav();
+        blurNav.classList.add('navClosed');
     }
 
     if (dropDown.classList.contains('open')) {
@@ -34,6 +41,10 @@ hamburger.addEventListener('click', () => {
         aboutNav.classList.add('fade-out');
         designNav.classList.remove('fade-in');
         aboutNav.classList.remove('fade-in');
+    }
+
+    if (menuOpen) {
+        blurNav.classList.remove('navClosed');
     }
 });
 
