@@ -46,12 +46,14 @@ body {
 .frontSliderContainer {
   width: 100vw;
   min-height: 100%;
+  height: 100vh;
 }
 
 .sliderWrapper {
   position: relative;
   max-width: 100vw;
   min-height: 100%;
+  height: 100vh;
 }
 
 .slider {
@@ -88,6 +90,7 @@ body {
 .slide img {
   width: 100%;
   min-height: 100vh;
+  height: 100vh;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
