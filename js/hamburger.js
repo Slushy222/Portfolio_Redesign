@@ -51,6 +51,10 @@ hamburger.addEventListener('click', () => {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape' && menuOpen) {
         closeNav();
+        blurNav.classList.add('navClosed');
+    }
+    else {
+        blurNav.classList.remove('navClosed');
     }
 });
 
