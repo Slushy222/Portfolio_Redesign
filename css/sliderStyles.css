@@ -82,6 +82,7 @@ body {
 .slide video {
   width: 100%;
   min-height: 100vh;
+  height: 100vh;
   object-fit: cover;
   pointer-events: none;
   user-select: none;
