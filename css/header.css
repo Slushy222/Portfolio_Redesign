@@ -111,9 +111,6 @@ header {
 
 #webTitle:hover, #webTitle:hover a:link, #webTitle:hover a:visited, #webTitle.open:hover, #webTitle.open:hover a:link, #webTitle.open:hover a:visited {
     color: rgb(131, 131, 131);
-    animation: fontChange 1s steps(1) forwards, fontRevert 0.2s steps(1) forwards;
-    animation-delay: 0s, 2s;
-    transition: color 1s ease-in-out;
 }
 
 #webTitle.open a:link, #webTitle.open a:visited {
@@ -277,7 +274,12 @@ ul {
         font-weight: bold;
         text-transform: uppercase;
     }
-    66% {
+    100% {
+        font-family: 'tt-commons-pro', sans-serif;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    /* 66% {
         font-family: "argent-pixel-cf", sans-serif;
         font-weight: 400;
         text-transform: none;
@@ -285,10 +287,10 @@ ul {
     100% {
         font-family: "Courier New", monospace;
         text-transform: lowercase;
-    }
+    } */
 }
 
-@keyframes fontRevert {
+/* @keyframes fontRevert {
     from {
         font-family: "Courier New", monospace;
         text-transform: lowercase;
@@ -296,7 +298,7 @@ ul {
     to {
         font-family: 'tt-commons-pro', sans-serif;
     }
-}
+} */
 
 @media screen and (max-width: 100em) {
     #designSelector, #aboutSelector {
