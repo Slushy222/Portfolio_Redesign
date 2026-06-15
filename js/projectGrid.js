@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all navigation elements
     const allTag = document.getElementById('allTag');
     const booksTag = document.getElementById('booksTag');
-    const videoTag = document.getElementById('videoTag');
+    // const videoTag = document.getElementById('videoTag');
     const brandingTag = document.getElementById('brandingTag');
     const webTag = document.getElementById('webTag');
     
@@ -31,8 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
             allTag.querySelector('a').classList.add('active');
         } else if (category === 'books') {
             booksTag.querySelector('a').classList.add('active');
-        } else if (category === 'video') {
-            videoTag.querySelector('a').classList.add('active');
+        // } else if (category === 'video') {
+        //     videoTag.querySelector('a').classList.add('active');
         } else if (category === 'branding') {
             brandingTag.querySelector('a').classList.add('active');
         } else if (category === 'web') {
@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
         filterProjects('books');
     });
     
-    videoTag.addEventListener('click', function() {
-        filterProjects('video');
-    });
+    // videoTag.addEventListener('click', function() {
+    //     filterProjects('video');
+    // });
     
     brandingTag.addEventListener('click', function() {
         filterProjects('branding');

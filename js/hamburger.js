@@ -31,6 +31,7 @@ document.addEventListener('keydown', function(event) {
 
 designSelector.addEventListener('click', () => {
     closeNav();
+    blurNav.classList.add('navClosed');
 });
 
 function closeNav() {

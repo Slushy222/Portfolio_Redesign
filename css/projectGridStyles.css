@@ -85,6 +85,10 @@
     grid-column: span 2;
 }
 
+#pizzaJoint {
+    grid-column: span 2;
+}
+
 
 #seekingAcceptance {
     grid-column: span 2;
