@@ -203,7 +203,7 @@
     
     /* Make ALL cells span a single column */
     #cainAndAbel, #sequoya, #climbersGuide, #toBe, 
-    #animation, #seekingAcceptance, #moonPieStout {
+    #animation, #seekingAcceptance, #moonPieStout, #pizzaJoint {
         grid-column: span 1;
         grid-row: span 1;
     }
