@@ -1,16 +1,35 @@
 footer {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
-    align-items: flex-end;
+    /* align-items: flex-end; */
     width: 100vw;
-    height: 10em;
-    padding: 12em 7vw 12em;
-    z-index: 800;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 2em 2em 2em;
+    z-index: 999;
+    background-color: rgb(27, 28, 28);
 }
 
-footer p, footer p a:link, footer p a:visited {
+#footerLinkContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20% auto;
+    width: 25%;
+    height: auto;
+}
+
+.footerLink, .footerLink a:link, .footerLink a:visited {
+    font-size: 1.5em;
+}
+
+.footerLink a:hover, .footerLink a:link:hover, .footerLink a:visited:hover {
+    color: rgb(131, 131, 131);
+}
+
+#footerName, .footerLink, .footerLink a:link, .footerLink a:visited {
     color: white;
     text-decoration: none;
     user-select: none;
@@ -19,11 +38,31 @@ footer p, footer p a:link, footer p a:visited {
     font-style: normal;
     position: relative;
     transition: none;
-    font-size: 2em;
     transition: color .25s ease-in-out;
     line-height: 1em;
 }
 
-footer p a:hover, footer p a:link:hover, footer p a:visited:hover {
-    color: rgb(131, 131, 131);
+#footerName {
+    width: 100%;
+    height: auto;
+    white-space: nowrap;
+    overflow:hidden;
+    margin: 0;
+}
+
+#footerName {
+    white-space: nowrap;
+    overflow:hidden;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+@media screen and (max-width: 100em) {
+    #footerLinkContainer {
+        flex-direction: column;
+        align-items: center;
+        font-size: 2em;
+    }
+
 }

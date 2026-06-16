@@ -21,7 +21,6 @@
         <link rel="stylesheet" href="css/projectGridStyles.css"/>
         <link rel="stylesheet" href="css/footer.css"/>
     </head>
-    
     <body>
         <div id="cursorText">CLICK</div>
         <header class="siteHeader">
@@ -152,7 +151,7 @@
 
                     <!-- TO BE TO HAVE TO MATURE -->
                     <div class="projectGridCell" id="toBe" data-category="web">
-                        <a href="html/toBe.html"><img src="images/projectGrid/pixelsFeaturedCell.webp" alt="#" loading="lazy"></a>
+                        <a href="html/toBe.html"><img src="images/projectGrid/pixelsFeaturedCell.webp" alt="#"></a>
                     </div>
 
                     <!-- ANIMATION -->
@@ -160,15 +159,21 @@
                         <a href="html/orderedFreedom.html"><img src="images/projectGrid/scientistFeaturedCell.webp" alt="#" loading="lazy"></a>
                     </div> -->
 
-
+                    <!-- PIZZA JOINT -->
                     <div class="projectGridCell" id="pizzaJoint" data-category="branding">
-                        <a href="html/pizzaJoint.html"><img src="images/projects/pizzaJoint/pizzaBoxes_PizzaJoint.webp" alt="#" loading="lazy"></a>
+                        <a href="html/pizzaJoint.html"><img src="images/projects/pizzaJoint/pizzaBoxes_PizzaJoint.webp" alt="#"></a>
                     </div>
 
                     <!-- SEEKING ACCEPTANCE -->
                     <div class="projectGridCell" id="seekingAcceptance" data-category="web">
-                        <a href="html/seekingAcceptance.html"><img src="images/projectGrid/seekingAcceptanceFeatured.webp" alt="#" loading="lazy"></a>
+                        <a href="html/seekingAcceptance.html"><img src="images/projectGrid/seekingAcceptanceFeatured.webp" alt="#"></a>
                     </div>
+
+
+                    <!-- MOONPIE AMERICA 250TH -->
+                    <!-- <div class="projectGridCell" id="moonPieAmerica" data-category="branding">
+                        <a href="html/seekingAcceptance.html"><img src="images/projectGrid/Stout-Mock-Featured.webp" alt="#" loading="lazy"></a>
+                    </div> -->
 
                 </div>
                 <script src="js/textFollow.js"></script>
@@ -176,10 +181,19 @@
             </section>
         </main>
         <footer>
-            <p><a href="mailto:taylorsampson.art@gmail.com" target="_blank">Contact</a></p>
-            <p><a href="https://www.instagram.com/taylorandhiscamera/" target="_blank">Instagram</a></p>
-            <p><a href="https://www.linkedin.com/in/taylor-sampson-3aa096266/" target="_blank">LinkedIn</a></p>
-            <p><a href="https://github.com/Slushy222" target="_blank">GitHub</a></p>
+            <div id="footerLinkContainer">
+                <p class="footerLink"><a href="mailto:taylorsampson.art@gmail.com" target="_blank">Contact</a></p>
+                <p class="footerLink"><a href="https://www.instagram.com/taylorandhiscamera/" target="_blank">Instagram</a></p>
+                <p class="footerLink"><a href="https://www.linkedin.com/in/taylor-sampson-3aa096266/" target="_blank">LinkedIn</a></p>
+                <p class="footerLink"><a href="https://github.com/Slushy222" target="_blank">GitHub</a></p>
+            </div>
+            <div id="footerNameContainer">
+                <h3 id="footerName">Taylor Sampson</h3>
+            </div>
+            <script src="js/fittext.js"></script>
+            <script>
+                window.fitText( document.getElementById("footerName"), 0.66 );
+            </script>
         </footer>
     </body>
 

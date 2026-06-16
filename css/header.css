@@ -85,7 +85,7 @@ header {
     padding: 2em 7vw 2em;
     margin-top: 2em;
     backdrop-filter: blur(0px);
-    z-index: 999;
+    z-index: 998;
     /* transition: margin-top 0.75s ease-in-out; */
     transition: width 0.5s, margin-top 0.2s, padding 0.2s, backdrop-fiter 1s, background-color 0.2s, corner-radius 0.2s ease-out;
 }
