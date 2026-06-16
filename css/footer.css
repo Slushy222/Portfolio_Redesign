@@ -8,7 +8,7 @@ footer {
     height: 100vh;
     min-height: 100vh;
     padding: 2em 2em 2em;
-    z-index: 999;
+    /* z-index: 949; */
     background-color: rgb(27, 28, 28);
 }
 
