@@ -1,14 +1,11 @@
 footer {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: column;
-    /* align-items: flex-end; */
     width: 100vw;
     height: 100vh;
     min-height: 100vh;
-    padding: 2em 2em 2em;
-    /* z-index: 949; */
     background-color: rgb(27, 28, 28);
 }
 
@@ -16,9 +13,11 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 20% auto;
-    width: 25%;
+    margin: 0 auto;
+    /* margin: 20% auto; */
+    width: 50%;
     height: auto;
+    padding: 1em 2.5em;
 }
 
 .footerLink, .footerLink a:link, .footerLink a:visited {
@@ -58,11 +57,19 @@ footer {
     padding-bottom: 2rem;
 }
 
-@media screen and (max-width: 100em) {
+
+@media screen and (max-width: 80em) {
     #footerLinkContainer {
+        width: 100%;
         flex-direction: column;
+        /* margin-bottom: 10%; */
+        margin: auto;
         align-items: center;
-        font-size: 2em;
+        
+    }
+
+    #footerLinkContainer p {
+        margin-bottom: 1.5em;
     }
 
 }
