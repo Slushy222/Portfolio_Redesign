@@ -322,8 +322,13 @@ body {
   /* Adjust slider navigation */
   .frontSliderContainer .sliderWrapper .sliderNav {
     bottom: 2em;
-    left: 5vw;
+    left: 40vw;
   }
+
+  /* .slidernav {
+    bottom: 5em;
+    left: 50em;
+  } */
 }
 
 /* Additional media query for very small screens */
