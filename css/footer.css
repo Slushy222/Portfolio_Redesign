@@ -93,4 +93,8 @@ footer {
     #footerNameMobileTop {
         padding-left: 18vw;
     }
+
+    #footerLinkContainer {
+        padding: 0.5em;
+    }
 }
