@@ -28,7 +28,7 @@ footer {
     color: rgb(131, 131, 131);
 }
 
-#footerName, .footerLink, .footerLink a:link, .footerLink a:visited {
+#footerName, .footerNameMobile, .footerLink, .footerLink a:link, .footerLink a:visited {
     color: white;
     text-decoration: none;
     user-select: none;
@@ -57,11 +57,17 @@ footer {
     padding-bottom: 2rem;
 }
 
+.footerNameMobile {
+    display: none;
+}
+
+
+
 
 @media screen and (max-width: 80em) {
     #footerLinkContainer {
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
         /* margin-bottom: 10%; */
         margin: auto;
         align-items: center;
@@ -72,4 +78,19 @@ footer {
         margin-bottom: 1.5em;
     }
 
+    #footerName {
+        display: none;
+    }
+
+    .footerNameMobile {
+        display: flex;
+        align-content: center;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        /* width: fit-content; */
+    }
+    #footerNameMobileTop {
+        padding-left: 18vw;
+    }
 }
