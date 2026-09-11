@@ -39,6 +39,8 @@ footer {
     transition: none;
     transition: color .25s ease-in-out;
     line-height: 1em;
+    padding-left: 0.13em;
+    padding-right: 0.13em;
 }
 
 #footerName {
