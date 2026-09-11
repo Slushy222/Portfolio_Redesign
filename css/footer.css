@@ -90,6 +90,8 @@ footer {
         width: 100%;
         height: auto;
         margin: auto;
+        padding-left: 0em;
+        padding-right: 0em;
         /* width: fit-content; */
     }
     #footerNameMobileTop {
