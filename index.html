@@ -12,20 +12,21 @@
         <link rel="preload" href="images/featuredImages/CainandAbel_featured.webp" as="image" fetchpriority="high">
 
         <!-- Open Graph Image Below -->
-        <meta property="og:site_name" content="TAYLORSAMPSON.ART" />
-        <meta property="og:title" content="Taylor Sampson" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.taylorsampson.art/" />
+        <meta property="og:site_name" content="TAYLORSAMPSON.ART"/>
+        <meta property="og:title" content="Taylor Sampson"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.taylorsampson.art/"/>
         <meta property="og:image" content="https://www.taylorsampson.art/images/openGraph/sampsonTaylor-OpenGraph.jpg" />
-        <meta property="og:image:type" content="image/jpg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="600" />
+        <meta property="og:image:type" content="image/jpg"/>
+        <meta property="og:image:width" content="1200"/>
+        <meta property="og:image:height" content="600"/>
         <meta property="og:description" content="Artist, Designer, Developer, Climber, Runner, & Cat Lover" />
 
         <!-- CSS Reference  -->
+        <link rel="stylesheet" href="css/variables.css"/>
+        <link rel="stylesheet" href="css/heroHeader.css"/>
+        <link rel="stylesheet" href="fonts/BN_Brownstone.css"/>
         <link rel="stylesheet" href="https://use.typekit.net/ucr4obs.css">
-        <link rel="stylesheet" href="https://use.typekit.net/out0udz.css">
-        <link rel="stylesheet" href="fonts/Avenir/avenir.css">
         <link rel="stylesheet" href="css/header.css"/>
         <link rel="stylesheet" href="css/floatingHeader.css"/>
         <link rel="stylesheet" href="../css/floatingHeaderMobile.css"/>
@@ -34,7 +35,7 @@
         <link rel="stylesheet" href="css/footer.css"/>
     </head>
     <body>
-        <div id="cursorText">CLICK</div>
+        <div id="cursorText">VIEW MORE</div>
         <header class="siteHeader">
             <div id="topNavBar">
                 <h1 id="webTitle"><a href="../index.html">Taylor Sampson</a></h1>
@@ -47,8 +48,9 @@
         
             <nav id="dropdownNav">
                 <ul>
-                    <li id="designNav"><a href="../index.html#designOverview" id="designSelector">Design</a></li>
-                    <li id="aboutNav"><a href="/html/about.html" id="aboutSelector">About</a></li>
+                    <li class="navItem"><a href="../index.html#designOverview">Design</a></li>
+                    <!-- <li class="navItem"><a href="#">Dev</a></li> -->
+                    <li class="navItem"><a href="/html/about.html">About</a></li>
                 </ul>
             </nav>
 
@@ -60,78 +62,30 @@
                 <div class="sliderWrapper">
                     <div class="slider"> 
                         <div class="slide">
-                            <img id="slide1" src="images/featuredImages/CainandAbel_featured.webp" alt="#">
-                            <div class="featuredType" id="type3">
-                                <article class="frontPageBlock">
-                                    <h2><a href="html/cainAndAbel.html">Cain and Abel</a></h2>
-                                    <div class="featuredTagline">
-                                        <p class="featuredCategory" id="bookLink" data-category="books"><a href="#designOverview">BOOKS</a></p>
-                                        <p>2025</p>  
-                                    </div>
-                                </article>
+                            <img id="slide1" src="images/projects/cainAndAbel/cain4.webp" alt="#">
+                            <div class="featuredType">
+                                <h2><a href="html/cainAndAbel.html">Cain & Abel</a></h2>
+                                <p class="projectDate">2025</p>
                             </div>
                         </div>
 
 
                         <div class="slide">
                             <img id="slide2" src="images/featuredImages/pizzaJoint_Featured.webp" alt="#">
-                            <div class="featuredType" id="type4">
-                                <article class="frontPageBlock">
-                                    <h2><a href="html/pizzaJoint.html">Five Wit's Pizza Joint</a></h2>
-                                    <div class="featuredTagline">
-                                        <p class="featuredCategory" id="bookLink" data-category="branding"><a href="#designOverview">BRANDING</a></p>
-                                        <p>2026</p> 
-                                    </div>
-                                </article>                                
+                            <div class="featuredType" >
+                                <h2><a href="html/pizzaJoint.html">Five Wit's Pizza Joint</a></h2>
+                                <p class="projectDate">2026</p>                               
                             </div>
                         </div>
 
 
                         <div class="slide">
                             <img id="slide3" src="images/featuredImages/climbingGuide_featured.webp" alt="#">
-                            <div class="featuredType" id="type1">
-                                <article class="frontPageBlock">
-                                    <h2><a href="html/climbersGuide.html">A Climber's Guide to Chattanooga</a></h2>
-                                    <div class="featuredTagline">
-                                        <p class="featuredCategory" id="bookLink" data-category="books"><a href="#designOverview">BOOKS</a></p>
-                                        <p>2024</p> 
-                                    </div>
-                                </article>                                
+                            <div class="featuredType">
+                                <h2><a href="html/climbersGuide.html">A Climber's Guide to Chattanooga</a></h2>
+                                <p class="projectDate">2024</p>                            
                             </div>
                         </div>
-
-                        <!-- <div class="slide">
-                            <img id="slide1" src="images/featuredImages/MoonpieConcepts_USA-DarkerBG.jpg" alt="#">
-                            <div class="featuredType" id="type3">
-                                <article class="frontPageBlock">
-                                    <h2><a href="html/cainAndAbel.html">Cain and Abel</a></h2>
-                                    <div class="featuredTagline">
-                                        <p class="featuredCategory" id="bookLink" data-category="books"><a href="#designOverview">BOOKS</a></p>
-                                        <p>2025</p>  
-                                    </div>
-                                </article>
-                            </div>
-                        </div> -->
-
-                        
-                        <!-- <div class="slide">
-                            <video autoplay loop muted playsinline id="slide3" src="images/featuredImages/tobeVideo_featured2.mp4" alt="#"></video>
-                            <div class="featuredType" id="type2">
-                                <article class="frontPageBlock">
-                                    <h2><a href="html/toBe.html">TO BE,<br><br><br><i>TO HAVE</i>,<br>TO MATURE.</a></h2>
-                                    <div class="featuredTagline">
-                                        <p class="featuredCategory" id="webLink" data-category="web"><a href="#designOverview">WEB/CODE</a></p>
-                                        <p>2024–2025</p>
-                                    </div>
-                                    <div class="featuredTagline">
-                                        <p id="collab">Made in collaboration with&nbsp;</p>
-                                        <p><a id="kailey" href="https://kaileymadethis.com/"><i>Kailey Agoo</i></a></p>
-                                    </div>
-                                </article> 
-                            </div>
-                        </div> -->
-
-
 
                     </div>
                     <div class="sliderNav">
@@ -139,90 +93,80 @@
                         <a href="#slide2"></a>
                         <a href="#slide3"></a>
                     </div>
+                    <nav class="heroNav">
+                        <ul>
+                            <li class="heroNavItem underline rightGap"><a href="../index.html#designOverview">Design</a></li>
+                            <!-- <li class="heroNavItem underline rightGap"><a href="#">Dev</a></li> -->
+                            <li class="heroNavItem underline"><a href="/html/about.html">About</a></li>
+                        </ul>
+                    </nav>
+                    <h1 id="masthead">Taylor Sam<span class="alternateTwo">p</span>son</h1>
                 </div>
                 <script src="js/carousel.js"></script>
             </section>
             <section class="projectGridSection" id="designOverview">
-                <nav id="projectNav">
-                    <ul>
-                        <li id="allTag"><a>All</a></li>
-                        <li id="booksTag"><a>Books</a></li>
-                        <!-- <li id="videoTag"><a>Video</a></li> -->
-                        <li id="brandingTag"><a>Branding</a></li>
-                        <li id="webTag"><a>Web/Code</a></li>
-                    </ul>
-                </nav>
                 <div id="projectGridContainer">
                     
                     <!-- CAIN AND ABEL -->
-                    <div class="projectGridCell" id="cainAndAbel" data-category="books">
+                    <div class="projectGridCell" id="cainAndAbel">
                         <a href="html/cainAndAbel.html"><img src="images/projectGrid/cainFeaturedCell.webp" alt="#" loading="lazy"></a>
                     </div>
 
                     <!-- SEQUOYA REVIEW -->
-                    <div class="projectGridCell" id="sequoya" data-category="books">
+                    <div class="projectGridCell" id="sequoya">
                         <a href="html/sequoyaReview.html"><img src="images/projectGrid/sequoyaFeaturedCell.webp" alt="#" loading="lazy"></a>
                     </div>
 
                     <!-- CLIMBERS GUIDE -->
-                    <div class="projectGridCell" id="climbersGuide" data-category="books">
+                    <div class="projectGridCell" id="climbersGuide">
                         <a href="html/climbersGuide.html"><img src="images/projectGrid/climbersGuideFeaturedCell.webp" alt="#" loading="lazy"></a>
                     </div>
 
                     <!-- MOON PIE STOUT -->
-                    <div class="projectGridCell" id="moonPieStout" data-category="branding">
+                    <div class="projectGridCell" id="moonPieStout">
                         <a href="html/moonPieStout.html"><img src="images/projectGrid/Stout-Mock-Featured.webp" alt="#" loading="lazy"></a>
                     </div>
 
                     <!-- TO BE TO HAVE TO MATURE -->
-                    <div class="projectGridCell" id="toBe" data-category="web">
+                    <div class="projectGridCell" id="toBe">
                         <a href="html/toBe.html"><img src="images/projectGrid/pixelsFeaturedCell.webp" alt="#"></a>
                     </div>
 
                     <!-- ANIMATION -->
-                    <div class="projectGridCell" id="animation" data-category="branding">
+                    <div class="projectGridCell" id="animation">
                         <a href="html/orderedFreedom.html"><img src="images/projectGrid/scientistFeaturedCell.webp" alt="#" loading="lazy"></a>
                     </div>
 
                     <!-- PIZZA JOINT -->
-                    <div class="projectGridCell" id="pizzaJoint" data-category="branding">
+                    <div class="projectGridCell" id="pizzaJoint">
                         <a href="html/pizzaJoint.html"><img src="images/projects/pizzaJoint/pizzaBoxes_PizzaJoint.webp" alt="#"></a>
                     </div>
 
                     <!-- SEEKING ACCEPTANCE -->
-                    <div class="projectGridCell" id="seekingAcceptance" data-category="web">
+                    <div class="projectGridCell" id="seekingAcceptance">
                         <a href="html/seekingAcceptance.html"><img src="images/projectGrid/seekingAcceptanceFeatured.webp" alt="#"></a>
                     </div>
 
                     <!-- MOONPIE AMERICA 250TH -->
-                    <div class="projectGridCell" id="moonPieAmerica" data-category="branding">
+                    <div class="projectGridCell" id="moonPieAmerica">
                         <a href="html/moonPieAmerica250.html"><img src="images/projectGrid/MoonpieConcepts_USA-LighterBG.webp" alt="#" loading="lazy"></a>
                     </div>
 
                 </div>
                 <script src="js/textFollow.js"></script>
-                <script src="js/projectGrid.js"></script>
             </section>
         </main>
         <footer>
             <div id="bottomFooterContainer">
-                <div id="footerNameContainer">
-                    <h3 id="footerName">Taylor Sampson</h3>
-                    <h3 class="footerNameMobile" id="footerNameMobileTop">Taylor</h3>
-                    <h3 class="footerNameMobile"id="footerNameMobileBottom">Sampson</h3>
-                </div>
                 <div id="footerLinkContainer">
                     <p class="footerLink"><a href="mailto:taylorsampson.art@gmail.com" target="_blank">Contact</a></p>
-                    <p class="footerLink"><a href="https://www.instagram.com/taylorandhiscamera/" target="_blank">Instagram</a></p>
                     <p class="footerLink"><a href="https://www.linkedin.com/in/taylor-sampson-3aa096266/" target="_blank">LinkedIn</a></p>
                     <p class="footerLink"><a href="https://github.com/Slushy222" target="_blank">GitHub</a></p>
                 </div>
             </div>
             <script src="js/fittext.js"></script>
             <script>
-                window.fitText( document.getElementById("footerName"), 0.93 );
-                window.fitText( document.getElementById("footerNameMobileTop"), 0.39 );
-                window.fitText( document.getElementById("footerNameMobileBottom"), 0.50 );
+                window.fitText( document.getElementById("masthead"), 0.39 );
             </script>
         </footer>
     </body>

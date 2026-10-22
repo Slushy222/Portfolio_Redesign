@@ -70,7 +70,7 @@ function animate() {
     const textWidth = text.offsetWidth;
     
     // Position text above cursor and center it horizontally
-    text.style.transform = `translate(${currentX - (textWidth/2)}px, ${currentY - 30}px)`;
+    text.style.transform = `translate(${currentX - (textWidth * 1.1)}px, ${currentY - 35}px)`;
     
     // Only show text when hovering over project grid cell images
     if (isHovering) {

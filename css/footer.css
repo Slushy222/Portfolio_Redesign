@@ -5,10 +5,8 @@ footer {
     flex-direction: column;
     width: 100vw;
     height: auto;
-    min-height: 50vh;
-    background-color: rgb(27, 28, 28);
-    /* border-top-left-radius: 25px;
-    border-top-right-radius: 25px; */
+    min-height: 0vh;
+    background-color: var(--black);
 }
 
 #footerLinkContainer {
@@ -17,22 +15,21 @@ footer {
     justify-content: space-between;
     margin: 0 auto;
     /* margin: 20% auto; */
-    width: 35%;
+    width: 15%;
     height: auto;
-    padding: 20em 2.5em;
-    padding-top: 5em;
+    padding: 12em 2.5em 5em;
 }
 
 .footerLink, .footerLink a:link, .footerLink a:visited {
-    font-size: 1.5em;
+    font-size: var(--overline);
 }
 
 .footerLink a:hover, .footerLink a:link:hover, .footerLink a:visited:hover {
-    color: rgb(131, 131, 131);
+    color: var(--grey);
 }
 
-#footerName, .footerNameMobile, .footerLink, .footerLink a:link, .footerLink a:visited {
-    color: white;
+.footerLink, .footerLink a:link, .footerLink a:visited {
+    color: var(--white);
     text-decoration: none;
     user-select: none;
     font-family: 'tt-commons-pro', sans-serif;
@@ -41,32 +38,6 @@ footer {
     position: relative;
     transition: none;
     transition: color .25s ease-in-out;
-    padding-left: 0.13em;
-    padding-right: 0.13em;
-}
-
-#footerName {
-    width: 100%;
-    white-space: nowrap;
-    overflow:hidden;
-    margin: 0;
-    height: fit-content;
-    align-content: flex-start;
-    text-transform: uppercase;
-    font-weight: 800;
-    color: white;
-}
-
-#footerName {
-    white-space: nowrap;
-    overflow:hidden;
-    margin: 0;
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-}
-
-.footerNameMobile {
-    display: none;
 }
 
 
@@ -76,7 +47,6 @@ footer {
     #footerLinkContainer {
         width: 90%;
         flex-direction: row;
-        /* margin-bottom: 10%; */
         margin: auto;
         align-items: center;
         
@@ -85,30 +55,5 @@ footer {
     #footerLinkContainer p {
         margin-top: 3em;
         margin-bottom: 5em;
-    }
-
-    #footerName {
-        display: none;
-    }
-
-    .footerNameMobile {
-        display: flex;
-        align-content: center;
-        width: 100%;
-        height: auto;
-        margin: auto;
-        padding-left: 0em;
-        padding-right: 0em;
-        /* width: fit-content; */
-        text-transform: uppercase;
-        font-weight: 800;
-        color: white;
-    }
-    #footerNameMobileTop {
-        margin-bottom: -0.5em;
-    }
-
-    #footerLinkContainer {
-        padding: 0.5em;
     }
 }

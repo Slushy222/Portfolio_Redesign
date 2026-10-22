@@ -1,0 +1,13 @@
+html:is([data-scroll='0']) {
+    #topNavBar.navClosed {
+        margin-top: -5%;
+    }
+}
+
+@media screen and (max-width: 80em) {
+    html:is([data-scroll='0']) {
+        #topNavBar.navClosed {
+            margin-top: -10%;
+        }
+    }   
+}

@@ -37,28 +37,20 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(131, 131, 131);
+  background: var(--grey);
   /* background: transparent; */
   transition: scrollbar-color 0.2s ease-in-out;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: white;
+  background: var(--white);
 }
 
-
-
-
-/* title elements */
-
-:root {
-    font-size: 10px;
-}
 
 /* REMOVE WHEN INSERTED INTO REGULAR FLOW */
 body {
-    background-color: rgb(27, 28, 28);
+    background-color: var(--black);
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -99,7 +91,7 @@ header {
 }
 
 #webTitle, #webTitle a:link, #webTitle a:visited{
-    color: white;
+    color: var(--white);
     text-decoration: none;
     user-select: none;
     font-family: 'tt-commons-pro', sans-serif;
@@ -107,14 +99,15 @@ header {
     font-style: normal;
     position: relative;
     transition: none;
+    font-size: var(--overline);
 }
 
 #webTitle:hover, #webTitle:hover a:link, #webTitle:hover a:visited, #webTitle.open:hover, #webTitle.open:hover a:link, #webTitle.open:hover a:visited {
-    color: rgb(131, 131, 131);
+    color: var(--grey);
 }
 
 #webTitle.open a:link, #webTitle.open a:visited {
-    color: black;
+    color: var(--black);
 }
 
 .hamburgerWrapper {
@@ -132,7 +125,7 @@ header {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: var(--white);
 }
 
 #hamburgerTopBar {
@@ -145,27 +138,27 @@ header {
 
 .hamburgerWrapper:hover #hamburgerTopBar {
     transform: translate(0px, -3px);
-    background-color: rgb(131, 131, 131);
+    background-color: var(--grey);
 }
 
 .hamburgerWrapper:hover #hamburgerBottomBar {
     transform: translate(0px, 3px);
-    background-color: rgb(131, 131, 131);
+    background-color: var(--grey);
 }
 
 .hamburgerWrapper.open:hover #hamburgerTopBar, .hamburgerWrapper.open:hover #hamburgerBottomBar {
-    background-color: rgb(131, 131, 131);
+    background-color: var(--grey);
     /* background-color: blue; */
 }
 
 .hamburgerWrapper.open #hamburgerTopBar {
     transform: rotate(45deg) translate(3px,3px);
-    background-color: black;
+    background-color: var(--black);
 }
 
 .hamburgerWrapper.open #hamburgerBottomBar {
     transform: rotate(-45deg) translate(3px,-3px);
-    background-color: black;
+    background-color: var(--black);
 }
 
 
@@ -179,7 +172,7 @@ ul {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background-color: white;
+    background-color: var(--white);
     z-index: 950;
     transition: all 0.5s ease-in-out;
     transform: translateY(-120%);
@@ -190,7 +183,7 @@ ul {
     transform: translateY(0%);
 }
 
-#designNav, #aboutNav {
+.navItem {
     display: flex;
     align-items: flex-end;
     justify-content: right;
@@ -198,9 +191,9 @@ ul {
 }
 
 
-#designNav #designSelector, #designNav a:link, #designNav a:visited, #aboutNav #aboutSelector, #aboutNav a:link, #aboutNav a:visited {
+.navItem, .navItem a:link, .navItem a:visited {
     position: relative;
-    color: black;
+    color: var(--black);
     text-decoration: none;
     user-select: none;
     font-family: 'tt-commons-pro', sans-serif;
@@ -211,20 +204,18 @@ ul {
     justify-content: right;
 }
 
-#designSelector, #aboutSelector {
-    font-size: 16rem;
+.navItem a {
+    font-size: var(--navDropdown);
     line-height: 20rem;
     width: fit-content;
 }
 
-#designNav #designSelector:hover,
-#aboutNav #aboutSelector:hover {
-    color: rgb(131, 131, 131);
+.navItem a:hover {
+    color: var(--grey);
     cursor: pointer;
 }
 
-#designNav #designSelector,
-#aboutNav #aboutSelector {
+.navItem a {
     transition: color 0.4s ease-in-out;
 }
 
@@ -268,41 +259,8 @@ ul {
 	}
 }
 
-@keyframes fontChange {
-    0% {
-        font-family: 'tt-commons-pro', sans-serif;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    100% {
-        font-family: 'tt-commons-pro', sans-serif;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-    /* 66% {
-        font-family: "argent-pixel-cf", sans-serif;
-        font-weight: 400;
-        text-transform: none;
-    }
-    100% {
-        font-family: "Courier New", monospace;
-        text-transform: lowercase;
-    } */
-}
-
-/* @keyframes fontRevert {
-    from {
-        font-family: "Courier New", monospace;
-        text-transform: lowercase;
-    }
-    to {
-        font-family: 'tt-commons-pro', sans-serif;
-    }
-} */
-
 @media screen and (max-width: 100em) {
-    #designSelector, #aboutSelector {
-        font-size: 12rem;
+    .navItem a {
         line-height: 14rem;
     }
 
@@ -310,8 +268,7 @@ ul {
 
 
 @media screen and (max-width: 80em) {
-    #designSelector, #aboutSelector {
-        font-size: 8rem;
+    .navItem a {
         line-height: 10rem;
     }
 }

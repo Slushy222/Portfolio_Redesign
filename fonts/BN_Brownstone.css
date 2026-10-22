@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'BN_Brownstone';
+    src: url('BNBrownstone.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.alternateTwo {
+    font-feature-settings: "aalt" 2;
+}

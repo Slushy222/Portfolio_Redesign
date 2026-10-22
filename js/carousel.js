@@ -1,5 +1,5 @@
 class Carousel {
-    constructor(sliderElement, navElement, interval = 6000) {
+    constructor(sliderElement, navElement, interval) {
         // Throttle scroll events for better performance
         this.scrollThrottleTimer = null;
         this.slider = sliderElement;
