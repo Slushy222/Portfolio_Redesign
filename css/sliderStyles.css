@@ -208,6 +208,15 @@ body {
   margin-right: 1.5em;
 }
 
+
+.heroGradient {
+  position: absolute;
+  bottom: -10%;
+  width: 100vw;
+  height: 30%;
+  background: linear-gradient(transparent, var(--black));
+}
+
 @media screen and (max-width: 80em) {
     #masthead {
       top: 62%;
