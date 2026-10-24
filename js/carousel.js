@@ -1,203 +1,240 @@
 class Carousel {
-    constructor(sliderElement, navElement, interval) {
-        // Throttle scroll events for better performance
-        this.scrollThrottleTimer = null;
+    constructor(sliderElement, navElement, interval = 6000) {
         this.slider = sliderElement;
         this.nav = navElement;
         this.interval = interval;
-        this.currentSlide = 0;
-        this.slides = this.slider.querySelectorAll('.slide');
         this.navDots = this.nav.querySelectorAll('a');
-        this.totalSlides = this.slides.length;
-        
-        // Drag properties
+        this.totalSlides = this.slider.querySelectorAll('.slide').length;
+        this.currentSlide = 0;
+
         this.isDragging = false;
+        this.hasMoved = false;
         this.startPos = 0;
         this.currentTranslate = 0;
         this.prevTranslate = 0;
-        this.animationID = 0;
-        this.dragThreshold = 50; 
-        
-        // Timer reference
+        this.moveThreshold = 5;
+        this.snapRatio = 0.3;
+
         this.rotationInterval = null;
+        this.transitionTimer = null;
         this.isTransitioning = false;
-        
+        this.inView = true;
+
+        this.onVisibility = () => this.syncAutoRotation();
+        this.onResize = () => this.handleResize();
+        this.onPointerDown = (e) => this.dragStart(e);
+        this.onPointerMove = (e) => this.drag(e);
+        this.onPointerUp = (e) => this.dragEnd(e);
+        this.onTransitionEnd = (e) => {
+            if (e.target === this.slider && e.propertyName === 'transform') {
+                this.finishTransition();
+            }
+        };
+        this.onClickCapture = (e) => {
+            if (this.hasMoved) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.hasMoved = false;
+            }
+        };
+
         this.init();
-        this.visibilityChangeHandler = this.handleVisibilityChange.bind(this); 
-        document.addEventListener('visibilitychange', this.visibilityChangeHandler);
-        
-        // Add scroll event handler
-        this.scrollHandler = this.handleScroll.bind(this);
-        window.addEventListener('scroll', this.scrollHandler);
     }
 
-    handleVisibilityChange() { 
-        if (document.hidden) { 
-            this.stopAutoRotation(); 
-        } else { 
-            this.startAutoRotation(); 
-        } 
-    }
-
-    isMobile() {
-        return window.matchMedia('(pointer: coarse)').matches;
-    }
 
     init() {
-        this.updateNavigation();
-        
-        // Add will-change to improve performance
+        if (this.totalSlides < 2) return; 
+
         this.slider.style.willChange = 'transform';
+        this.slider.style.touchAction = 'pan-y';
+
+        this.slider.classList.remove('with-transition');
+        this.snapTo(0);
+        void this.slider.offsetWidth;
         this.slider.classList.add('with-transition');
-        
-        // Use requestAnimationFrame for smoother performance
-        requestAnimationFrame(() => {
-            this.startAutoRotation();
-        });
-        
+        this.updateNavigation();
+
         this.navDots.forEach((dot, index) => {
             dot.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (!this.isTransitioning) {
-                    this.goToSlide(index, true);
-                }
+                this.goToSlide(index, true);
             });
         });
-    
-        // Drag event listeners
-        if (!this.isMobile()) {
-            this.slider.addEventListener('mousedown', this.dragStart.bind(this));
-            this.slider.addEventListener('mousemove', this.drag.bind(this));
-            this.slider.addEventListener('mouseup', this.dragEnd.bind(this));
-            this.slider.addEventListener('mouseleave', this.dragEnd.bind(this));
+
+        this.slider.addEventListener('pointerdown', this.onPointerDown);
+        this.slider.addEventListener('pointermove', this.onPointerMove);
+        this.slider.addEventListener('pointerup', this.onPointerUp);
+        this.slider.addEventListener('pointercancel', this.onPointerUp);
+        this.slider.addEventListener('click', this.onClickCapture, true);
+        this.slider.addEventListener('transitionend', this.onTransitionEnd);
+        this.slider.addEventListener('dragstart', (e) => e.preventDefault());
+        this.slider.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        document.addEventListener('visibilitychange', this.onVisibility);
+        window.addEventListener('resize', this.onResize);
+
+        if ('IntersectionObserver' in window) {
+            this.observer = new IntersectionObserver((entries) => {
+                this.inView = entries[entries.length - 1].isIntersecting;
+                this.syncAutoRotation();
+            }, { threshold: 0 });
+            this.observer.observe(this.slider.parentElement || this.slider);
         }
-        
-        // this.slider.addEventListener('touchstart', this.dragStart.bind(this));
-        // this.slider.addEventListener('touchmove', this.drag.bind(this));
-        // this.slider.addEventListener('touchend', this.dragEnd.bind(this));
-        
-        this.slider.addEventListener('contextmenu', e => e.preventDefault());
-    
-        // Handle transition end
-        this.slider.addEventListener('transitionend', () => {
-            this.isTransitioning = false;
-        });
+
+        this.syncAutoRotation();
+    }
+
+    destroy() {
+        this.stopAutoRotation();
+        clearTimeout(this.transitionTimer);
+        if (this.observer) this.observer.disconnect();
+        document.removeEventListener('visibilitychange', this.onVisibility);
+        window.removeEventListener('resize', this.onResize);
+        this.slider.removeEventListener('pointerdown', this.onPointerDown);
+        this.slider.removeEventListener('pointermove', this.onPointerMove);
+        this.slider.removeEventListener('pointerup', this.onPointerUp);
+        this.slider.removeEventListener('pointercancel', this.onPointerUp);
+        this.slider.removeEventListener('click', this.onClickCapture, true);
+        this.slider.removeEventListener('transitionend', this.onTransitionEnd);
+    }
+
+
+    translateFor(index) {
+        return -index * this.slider.offsetWidth;
+    }
+
+    snapTo(index) {
+        this.currentSlide = index;
+        this.currentTranslate = this.prevTranslate = this.translateFor(index);
+        this.setSliderPosition(this.currentTranslate);
+    }
+
+    setSliderPosition(translate) {
+        this.slider.style.transform = `translate3d(${translate}px, 0, 0)`;
     }
 
     dragStart(event) {
         if (this.isTransitioning) return;
-        
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+
         this.stopAutoRotation();
         this.isDragging = true;
-        this.slider.classList.remove('with-transition');
-        this.slider.classList.add('grabbing');
-        
-        if (event.type === 'mousedown') {
-            this.startPos = event.clientX;
-        } else {
-            this.startPos = event.touches[0].clientX;
-        }
-        
-        cancelAnimationFrame(this.animationID);
+        this.hasMoved = false;
+        this.startPos = event.clientX;
+        this.slider.setPointerCapture(event.pointerId);
     }
 
     drag(event) {
         if (!this.isDragging) return;
-        
-        event.preventDefault();
-        
-        const currentPosition = event.type === 'mousemove' 
-            ? event.clientX 
-            : event.touches[0].clientX;
-        
-        const diff = currentPosition - this.startPos;
-        const sliderWidth = this.slider.offsetWidth;
-        this.currentTranslate = this.prevTranslate + diff;
-        
-        // Add resistance at the edges
-        if (this.currentSlide === 0 && diff > 0) {
-            this.currentTranslate = this.prevTranslate + (diff * 0.3);
-        } else if (this.currentSlide === this.totalSlides - 1 && diff < 0) {
-            this.currentTranslate = this.prevTranslate + (diff * 0.3);
+
+        const diff = event.clientX - this.startPos;
+        if (!this.hasMoved && Math.abs(diff) < this.moveThreshold) return;
+
+        if (!this.hasMoved) {
+            this.hasMoved = true;
+            this.slider.classList.remove('with-transition');
+            this.slider.classList.add('grabbing');
         }
-        
+
+        const atStart = this.currentSlide === 0 && diff > 0;
+        const atEnd = this.currentSlide === this.totalSlides - 1 && diff < 0;
+        const effective = (atStart || atEnd) ? diff * 0.3 : diff;
+
+        this.currentTranslate = this.prevTranslate + effective;
         this.setSliderPosition(this.currentTranslate);
     }
 
-    dragEnd() {
+    dragEnd(event) {
         if (!this.isDragging) return;
-        
         this.isDragging = false;
-        this.slider.classList.remove('grabbing');
-        
-        const sliderWidth = this.slider.offsetWidth;
-        const movedBy = this.currentTranslate - this.prevTranslate;
-        
-        this.slider.classList.add('with-transition');
-        
-        // Calculate how far we've moved as a percentage of slide width
-        const movePercentage = Math.abs(movedBy) / sliderWidth;
-        
-        // If we've moved more than 30% of the slide width
-        if (movePercentage > 0.3) {
-            if (movedBy > 0 && this.currentSlide > 0) {
-                // Moved right more than 30% - go to previous slide
-                this.currentSlide--;
-            } else if (movedBy < 0 && this.currentSlide < this.totalSlides - 1) {
-                // Moved left more than 30% - go to next slide
-                this.currentSlide++;
-            }
-        }
-        
-        // If we haven't moved more than 30%, goToSlide will snap back to current slide
-        this.goToSlide(this.currentSlide, true);
-    }
 
-    setSliderPosition(translate) {
-        // Force hardware acceleration with translateZ(0)
-        this.slider.style.transform = `translateX(${translate}px) translateZ(0)`;
+        if (this.slider.hasPointerCapture(event.pointerId)) {
+            this.slider.releasePointerCapture(event.pointerId);
+        }
+        this.slider.classList.remove('grabbing');
+
+        if (!this.hasMoved) {
+            this.startAutoRotation();
+            return;
+        }
+
+        const width = this.slider.offsetWidth;
+        const movedBy = this.currentTranslate - this.prevTranslate;
+        let target = this.currentSlide;
+
+        if (Math.abs(movedBy) / width > this.snapRatio) {
+            if (movedBy > 0 && target > 0) target--;
+            else if (movedBy < 0 && target < this.totalSlides - 1) target++;
+        }
+
+        this.slider.classList.add('with-transition');
+        this.goToSlide(target, true);
+
+        setTimeout(() => { this.hasMoved = false; }, 0);
     }
 
     goToSlide(index, resetTimer = false) {
         if (this.isTransitioning) return;
-        
-        this.isTransitioning = true;
+
+        index = Math.max(0, Math.min(index, this.totalSlides - 1));
+        const targetTranslate = this.translateFor(index);
+        const needsAnimation = Math.abs(targetTranslate - this.currentTranslate) > 0.5;
+
         this.currentSlide = index;
-        const sliderWidth = this.slider.offsetWidth;
-        this.currentTranslate = -index * sliderWidth;
-        this.prevTranslate = this.currentTranslate;
-        
-        this.slider.classList.add('with-transition');
-        this.setSliderPosition(this.currentTranslate);
+        this.prevTranslate = targetTranslate;
+        this.currentTranslate = targetTranslate;
         this.updateNavigation();
-        
-        if (resetTimer) {
-            this.resetAutoRotation();
+
+        this.slider.classList.add('with-transition');
+
+        if (needsAnimation) {
+            this.isTransitioning = true;
+            clearTimeout(this.transitionTimer);
+            this.transitionTimer = setTimeout(() => this.finishTransition(), 1000);
         }
+        this.setSliderPosition(targetTranslate);
+
+        if (resetTimer) this.resetAutoRotation();
     }
 
-    updateNavigation() {
-        this.navDots.forEach((dot, index) => {
-            if (index === this.currentSlide) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
+    finishTransition() {
+        clearTimeout(this.transitionTimer);
+        this.isTransitioning = false;
     }
 
     nextSlide() {
-        if (!this.isDragging && !this.isTransitioning) {
-            this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-            this.goToSlide(this.currentSlide);
+        if (this.isDragging || this.isTransitioning) return;
+        const next = this.currentSlide >= this.totalSlides - 1 ? 0 : this.currentSlide + 1;
+        this.goToSlide(next);
+    }
+
+    updateNavigation() {
+        this.navDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === this.currentSlide);
+        });
+    }
+
+    handleResize() {
+        this.slider.classList.remove('with-transition');
+        this.snapTo(this.currentSlide);
+        void this.slider.offsetWidth;
+        this.slider.classList.add('with-transition');
+        this.finishTransition();
+    }
+
+
+    syncAutoRotation() {
+        if (!document.hidden && this.inView && !this.isDragging) {
+            this.startAutoRotation();
+        } else {
+            this.stopAutoRotation();
         }
     }
 
     startAutoRotation() {
-        if (!document.hidden && window.scrollY === 0) { // Only start if at top of page
-            this.stopAutoRotation();
-            this.rotationInterval = setInterval(() => this.nextSlide(), this.interval);
-        }
+        this.stopAutoRotation();
+        if (document.hidden || !this.inView) return;
+        this.rotationInterval = setInterval(() => this.nextSlide(), this.interval);
     }
 
     stopAutoRotation() {
@@ -213,42 +250,10 @@ class Carousel {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Defer non-essential initialization to next frame
-    window.requestAnimationFrame(() => {
-        const sliderElement = document.querySelector('.slider');
-        const navElement = document.querySelector('.sliderNav');
-        const featuredTypes = document.querySelectorAll('.featuredType');
-        
-        // Preload images to prevent stuttering
-        const preloadImages = () => {
-            const slideImages = sliderElement.querySelectorAll('img');
-            slideImages.forEach(img => {
-                const src = img.getAttribute('src');
-                if (src) {
-                    const image = new Image();
-                    image.src = src;
-                }
-            });
-        };
-        
-        // Preload images before initializing carousel
-        preloadImages();
-        
-        const carousel = new Carousel(sliderElement, navElement, 6000);
+    const sliderElement = document.querySelector('.slider');
+    const navElement = document.querySelector('.sliderNav');
+    if (!sliderElement || !navElement) return;
 
-        // featuredTypes.forEach(featured => {
-        //     const article = featured.querySelector('.frontPageBlock');
-        //     if (article) {
-        //         article.addEventListener("mouseover", function() {
-        //             carousel.stopAutoRotation();
-        //         });
-        //           
-        //         article.addEventListener("mouseout", function() {
-        //             carousel.startAutoRotation();
-        //         });
-        //     }
-        // });
-    });
+    window.carousel = new Carousel(sliderElement, navElement, 6000);
 });
