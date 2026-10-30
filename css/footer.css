@@ -4,18 +4,17 @@ footer {
     justify-content: flex-end;
     flex-direction: column;
     width: 100vw;
-    height: auto;
-    min-height: 0vh;
+    height: 50vh;
+    min-height: 50vh;
     background-color: var(--black);
 }
 
-#footerLinkContainer {
+.footerLinkContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 0 auto;
-    /* margin: 20% auto; */
-    width: 15%;
+    width: 100%;
     height: auto;
     padding: 12em 2.5em 5em;
 }
@@ -28,7 +27,7 @@ footer {
     color: var(--grey);
 }
 
-.footerLink, .footerLink a:link, .footerLink a:visited {
+.footerLink, .footerLink a:link, .footerLink a:visited, .footerGroupTitle {
     color: var(--white);
     text-decoration: none;
     user-select: none;
@@ -38,6 +37,18 @@ footer {
     position: relative;
     transition: none;
     transition: color .25s ease-in-out;
+    margin-bottom: 4px;
+}
+
+.footerGroupTitle {
+    font-weight: 700;
+    font-size: var(--followType);
+    margin-bottom: 10px;
+}
+
+
+#workGroup ul {
+    flex-direction: row;
 }
 
 

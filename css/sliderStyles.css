@@ -147,6 +147,7 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 999;
   text-align: center;
   gap: 2rem;
   width: 6em;

@@ -14,6 +14,7 @@ class Carousel {
         this.prevTranslate = 0;
         this.moveThreshold = 5;
         this.snapRatio = 0.3;
+        this.activePointerId = null; // CHANGED: remember the pointer, capture later
 
         this.rotationInterval = null;
         this.transitionTimer = null;
@@ -43,7 +44,7 @@ class Carousel {
 
 
     init() {
-        if (this.totalSlides < 2) return; 
+        if (this.totalSlides < 2) return;
 
         this.slider.style.willChange = 'transform';
         this.slider.style.touchAction = 'pan-y';
@@ -121,7 +122,7 @@ class Carousel {
         this.isDragging = true;
         this.hasMoved = false;
         this.startPos = event.clientX;
-        this.slider.setPointerCapture(event.pointerId);
+        this.activePointerId = event.pointerId;
     }
 
     drag(event) {
@@ -132,6 +133,9 @@ class Carousel {
 
         if (!this.hasMoved) {
             this.hasMoved = true;
+            try {
+                this.slider.setPointerCapture(this.activePointerId);
+            } catch (_) {}
             this.slider.classList.remove('with-transition');
             this.slider.classList.add('grabbing');
         }
@@ -151,6 +155,7 @@ class Carousel {
         if (this.slider.hasPointerCapture(event.pointerId)) {
             this.slider.releasePointerCapture(event.pointerId);
         }
+        this.activePointerId = null;
         this.slider.classList.remove('grabbing');
 
         if (!this.hasMoved) {
@@ -169,8 +174,7 @@ class Carousel {
 
         this.slider.classList.add('with-transition');
         this.goToSlide(target, true);
-
-        setTimeout(() => { this.hasMoved = false; }, 0);
+        setTimeout(() => { this.hasMoved = false; }, 50);
     }
 
     goToSlide(index, resetTimer = false) {
