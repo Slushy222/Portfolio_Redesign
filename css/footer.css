@@ -4,19 +4,30 @@ footer {
     justify-content: flex-end;
     flex-direction: column;
     width: 100vw;
-    height: 50vh;
-    min-height: 50vh;
+    height: auto;
+    min-height: 35vh;
     background-color: var(--black);
 }
 
-.footerLinkContainer {
+#footerContent {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
     padding: 12em 2.5em 5em;
+    width: auto;
+     margin: 0 auto;
+}
+
+.footerLinkContainer, #footerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+}
+
+.footerLinkContainer {
+    width: 25%;
 }
 
 .footerLink, .footerLink a:link, .footerLink a:visited {
@@ -44,6 +55,17 @@ footer {
     font-weight: 700;
     font-size: var(--followType);
     margin-bottom: 10px;
+    width: auto;
+    height: fit-content;
+}
+
+.footerGroupTitle a, .footerGroupTitl a:link, .footerLink a:visited {
+    color: var(--white);
+    text-decoration: none;
+}
+
+#lastListItem {
+    margin-bottom: 0px;
 }
 
 
