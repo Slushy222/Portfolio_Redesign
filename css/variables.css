@@ -53,8 +53,8 @@
     pointer-events: none;
     transition: opacity 0.25s ease;
     padding: 0.75em 1.5em;
-    border-radius: 100em;
-    backdrop-filter: blur(150px);
+    /* border-radius: 100em;
+    backdrop-filter: blur(150px); */
 }
 
 
