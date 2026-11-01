@@ -3,25 +3,37 @@ main {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
+    background-color: var(--white);
 }
 
-/* #cursorTextAbout {
-    color: var(--white);
-    text-decoration: none;
-    user-select: none;
-    z-index: 999;
-    transition: none;
-    position: absolute;
-    font-size: var(--followType);
-    font-family: 'tt-commons-pro', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    white-space: nowrap;
-    transition: opacity 0.25s ease;
-    padding: 0.75em 1.5em;
-    border-radius: 100em;
-    backdrop-filter: blur(150px);
+
+/* About Header Items */
+
+#webTitle, #webTitle a:link, #webTitle a:visited {
+    color: var(--black);
+}
+
+#hamburgerTopBar {
+    background-color: var(--black);
+}
+
+#hamburgerBottomBar {
+    background-color: var(--black);
+}
+
+
+/* About Footer Items */
+
+/* footer {
+    
 } */
+
+
+#artistLinks h3, #artistDescription h3 {
+    color: var(--black);
+}
+
+
 
 #aboutContainer {
     display: flex;
@@ -58,7 +70,7 @@ main {
 }
 
 #artistDescription, #artistLinks {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
     user-select: none;
     font-family: 'tt-commons-pro', sans-serif;
@@ -71,7 +83,7 @@ main {
 }
 
 .aboutLinks, .aboutLinks:link, .aboutLinks:visited, .aboutContact, .aboutContact:link, .aboutContact:visited {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
     user-select: none;
     transition: none;
@@ -85,23 +97,6 @@ main {
 
 .aboutContact:hover {
     color: var(--grey);
-}
-
-.aboutLinks::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background-color: var(--white);
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity .25s ease-in-out;
-}
-  
-.aboutLinks:hover::before, .aboutLinks:hover::before {
-    opacity: 1;
 }
 
 

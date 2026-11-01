@@ -5,7 +5,6 @@ footer {
     flex-direction: column;
     width: 100vw;
     height: auto;
-    min-height: 35vh;
     background-color: var(--black);
 }
 
@@ -13,9 +12,9 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 12em 2.5em 5em;
+    padding: 10em 2.5em 5em;
     width: auto;
-     margin: 0 auto;
+    margin: 0 auto;
 }
 
 .footerLinkContainer, #footerContent {
@@ -27,7 +26,14 @@ footer {
 }
 
 .footerLinkContainer {
-    width: 25%;
+    width: 40%;
+}
+
+.footerLinkGroup {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    flex-direction: column;
 }
 
 .footerLink, .footerLink a:link, .footerLink a:visited {
@@ -64,29 +70,54 @@ footer {
     text-decoration: none;
 }
 
-#lastListItem {
+.lastListItem {
     margin-bottom: 0px;
 }
 
 
-#workGroup ul {
+.lateralLinks {
+    display: flex;
     flex-direction: row;
 }
 
+.linkColumnMargin {
+    margin-right: 7em;
+}
 
 
+@media screen and (max-width: 100em) {
+    .footerLinkContainer {
+        width: 60%;
+    }
+}
 
-@media screen and (max-width: 80em) {
-    #footerLinkContainer {
-        width: 90%;
-        flex-direction: row;
-        margin: auto;
-        align-items: center;
-        
+@media screen and (max-width: 48em) {
+    .footerLinkContainer {
+        width: auto;
+        height: auto;
+        flex-direction: column;
+    }
+    #footerContent {
+        flex-direction: column;
     }
 
-    #footerLinkContainer p {
-        margin-top: 3em;
-        margin-bottom: 5em;
+    .linkColumnMargin {
+        margin-right: 0;
+    }
+
+    .lastListItem {
+        margin-bottom: 4px;
+    }
+
+    .lateralLinks {
+        flex-direction: column;
+    }
+
+    #footerTitle {
+        margin-bottom: 24px;
+    }
+
+    #contactGroup {
+        margin-bottom: 24px;
     }
 }
