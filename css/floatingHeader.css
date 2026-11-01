@@ -1,9 +1,5 @@
 html:not([data-scroll='0']) {
     #topNavBar.navClosed {
-        width: 40%;
-        padding: 1em 2vw 1em;
-        margin-top: 6em;
-        border-radius: 100em;
-        backdrop-filter: blur(150px);
+        margin-top: 2em;
     }
 }
