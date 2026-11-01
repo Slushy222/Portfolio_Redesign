@@ -1,9 +1,7 @@
 const hamburger = document.querySelector(".hamburgerWrapper");
 const webTitle = document.getElementById("webTitle");
 const dropDown = document.getElementById("dropdownNav");
-const designSelector = document.getElementById("designSelector");
-const designNav = document.getElementById("designNav");
-const aboutNav = document.getElementById("aboutNav");
+const navItem = document.querySelectorAll(".navItem");
 const blurNav = document.getElementById("topNavBar");
 const navContainer = document.getElementById("navBarContainer");
 
@@ -29,7 +27,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-designSelector.addEventListener('click', () => {
+navItem[0].addEventListener('click', () => {
     closeNav();
     blurNav.classList.add('navClosed');
 });
@@ -47,26 +45,22 @@ function openNav() {
         menuOpen = true;
         webTitle.classList.add('open')
         dropDown.classList.add('open')
+        navItem.forEach(remove_opacity);
     } else {
         closeNav();
         blurNav.classList.add('navClosed');
     }
 
     if (dropDown.classList.contains('open')) {
-        designNav.classList.add('fade-out');
-        aboutNav.classList.add('fade-out');
+        navItem.forEach(add_fadeOut);
         setTimeout(() => {
-            designNav.classList.add('fade-in');
-            aboutNav.classList.add('fade-in');
-            designNav.classList.remove('fade-out');
-            aboutNav.classList.remove('fade-out');
+            navItem.forEach(add_fadeIn);
+            navItem.forEach(remove_fadeOut);
         }, 460);
     }
     else {
-        designNav.classList.add('fade-out');
-        aboutNav.classList.add('fade-out');
-        designNav.classList.remove('fade-in');
-        aboutNav.classList.remove('fade-in');
+        navItem.forEach(add_fadeOut);
+        navItem.forEach(remove_fadeIn);
     }
 
     if (menuOpen) {
@@ -90,4 +84,28 @@ document.addEventListener('scroll', function() {
 
 function navDiv() {
     navContainer.classList.add('open');
+}
+
+
+
+
+
+function add_fadeIn(element) {
+    element.classList.add('fade-in')
+}
+
+function remove_fadeIn(element) {
+    element.classList.remove('fade-in')
+}
+
+function add_fadeOut(element) {
+    element.classList.add('fade-out')
+}
+
+function remove_fadeOut(element) {
+    element.classList.remove('fade-out')
+}
+
+function remove_opacity(element) {
+    element.style.opacity = 0;
 }

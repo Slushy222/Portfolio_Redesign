@@ -1,39 +1,50 @@
-:root {
-    font-size: 10px;
-}
-
 main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
+    background-color: var(--white);
 }
 
-#cursorTextAbout {
-    color: white;
-    text-decoration: none;
-    user-select: none;
-    z-index: 999;
-    transition: none;
-    position: absolute;
-    font-size: 1.8rem;
-    font-family: 'tt-commons-pro', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    white-space: nowrap;
-    transition: opacity 0.25s ease;
+
+/* About Header Items */
+
+#webTitle, #webTitle a:link, #webTitle a:visited {
+    color: var(--black);
 }
+
+#hamburgerTopBar {
+    background-color: var(--black);
+}
+
+#hamburgerBottomBar {
+    background-color: var(--black);
+}
+
+
+/* About Footer Items */
+
+/* footer {
+    
+} */
+
+
+#artistLinks h3, #artistDescription h3 {
+    color: var(--black);
+}
+
+
 
 #aboutContainer {
     display: flex;
     flex-direction: row;
+    max-width: 200rem;
+    margin: auto;
     padding: 0em 7vw 5em;
 }
 
 #taylorImageContainer {
-    width: 230em;
     min-height: 60em;
-    /* background-color: rgb(145, 145, 145); */
     margin-right: 5em;
 }
 
@@ -53,8 +64,13 @@ main {
     justify-content: space-between;
 }
 
+#artistDescription {
+    width: auto;
+    text-wrap: balance;
+}
+
 #artistDescription, #artistLinks {
-    color: white;
+    color: var(--black);
     text-decoration: none;
     user-select: none;
     font-family: 'tt-commons-pro', sans-serif;
@@ -63,10 +79,11 @@ main {
     font-size: 2rem;
     transition: none;
     padding-right: 5em;
+    font-size: var(--smallPara);
 }
 
 .aboutLinks, .aboutLinks:link, .aboutLinks:visited, .aboutContact, .aboutContact:link, .aboutContact:visited {
-    color: white;
+    color: var(--black);
     text-decoration: none;
     user-select: none;
     transition: none;
@@ -79,24 +96,7 @@ main {
 }
 
 .aboutContact:hover {
-    color: rgb(131, 131, 131);
-}
-
-.aboutLinks::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    border-radius: 2px;
-    background-color: white;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity .25s ease-in-out;
-}
-  
-.aboutLinks:hover::before, .aboutLinks:hover::before {
-    opacity: 1;
+    color: var(--grey);
 }
 
 
@@ -114,9 +114,9 @@ main {
         margin-bottom: 3em;
     }
     
-    #aboutTypography {
+    /* #aboutTypography {
         min-height: auto;
-    }
+    } */
     
     #artistDescription, #artistLinks {
         padding-right: 0;
