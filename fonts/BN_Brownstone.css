@@ -8,3 +8,7 @@
 .alternateTwo {
     font-feature-settings: "aalt" 2;
 }
+
+.tightKerning {
+    letter-spacing: -1%;
+}

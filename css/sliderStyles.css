@@ -178,7 +178,8 @@ body {
   font-size: 10em;
   min-width: 100vw;
   top: 45%;
-  left: 0.6%;
+  left: 0.85%;
+  height: auto;
 }
 
 .heroNavItem, .heroNavItem a:link, .heroNavItem a:visited {
@@ -221,5 +222,16 @@ body {
 @media screen and (max-width: 80em) {
     #masthead {
       top: 62%;
+    }
+    .heroGradient {
+      position: absolute;
+      bottom: 5%;
+      width: 100vw;
+      height: 5%;
+      background: linear-gradient(transparent, var(--black));
+    }
+
+    .frontSliderContainer {
+      height: 95vh;
     }
 }
