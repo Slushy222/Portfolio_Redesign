@@ -221,7 +221,8 @@ body {
 
 @media screen and (max-width: 80em) {
     #masthead {
-      top: 62%;
+      top: 75%;
+      height: 110%;
     }
     .heroGradient {
       position: absolute;
@@ -234,4 +235,6 @@ body {
     .frontSliderContainer {
       height: 95vh;
     }
+
+    
 }
