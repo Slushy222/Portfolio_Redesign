@@ -47,6 +47,12 @@ main {
     font-weight: 300;
     line-height: 1.4;
     margin: 0;
+    user-select: text;
+}
+
+.projectStatement::selection {
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .projectTypography a:link, .projectTypography a:visited {

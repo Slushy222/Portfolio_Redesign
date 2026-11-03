@@ -21,12 +21,16 @@ main {
     background-color: var(--black);
 }
 
-
-/* About Footer Items */
-
-/* footer {
-    
+/* html:is([data-scroll='90%']) {
+    #topNavBar.navClosed #hamburgerTopBar {
+        background-color: var(--white);
+    }
 } */
+
+
+
+
+
 
 
 #artistLinks h3, #artistDescription h3 {
