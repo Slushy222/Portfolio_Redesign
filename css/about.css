@@ -67,12 +67,21 @@ main {
 #artistDescription {
     width: auto;
     text-wrap: balance;
+    user-select: text;
+}
+
+#whiteboard {
+    user-select: text;
+}
+
+#artistDescription p::selection, #artistDescription p i::selection, #whiteboard::selection {
+    background-color: var(--black);
+    color: var(--white);
 }
 
 #artistDescription, #artistLinks {
     color: var(--black);
     text-decoration: none;
-    user-select: none;
     font-family: 'tt-commons-pro', sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -113,10 +122,6 @@ main {
         margin-right: 0;
         margin-bottom: 3em;
     }
-    
-    /* #aboutTypography {
-        min-height: auto;
-    } */
     
     #artistDescription, #artistLinks {
         padding-right: 0;

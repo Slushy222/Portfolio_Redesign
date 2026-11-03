@@ -180,6 +180,7 @@ body {
   top: 45%;
   left: 0.85%;
   height: auto;
+  transition: top 0.2s ease-in-out;
 }
 
 .heroNavItem, .heroNavItem a:link, .heroNavItem a:visited {
@@ -203,7 +204,6 @@ body {
   z-index: 995;
   height: fit-content;
   width: fit-content;
-  /* margin: auto; */
 }
 
 .rightGap {
@@ -219,9 +219,19 @@ body {
   background: linear-gradient(transparent, var(--black));
 }
 
+
+@media screen and (max-width: 100em) {
+    #masthead {
+      top: 55%;
+      height: 110%;
+    }
+}
+
+
+
 @media screen and (max-width: 80em) {
     #masthead {
-      top: 75%;
+      top: 65%;
       height: 110%;
     }
     .heroGradient {
