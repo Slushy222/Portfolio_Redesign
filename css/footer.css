@@ -92,6 +92,10 @@ footer {
 }
 
 @media screen and (max-width: 48em) {
+    footer {
+        min-height: 100vh;
+    }
+
     .footerLinkContainer {
         width: auto;
         height: auto;
@@ -114,7 +118,7 @@ footer {
     }
 
     #footerTitle {
-        margin-bottom: 24px;
+        display: none;
     }
 
     #contactGroup {

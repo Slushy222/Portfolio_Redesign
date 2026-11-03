@@ -4,6 +4,13 @@ html:is([data-scroll='0']) {
     }
 }
 
+
+html:is([data-scroll='100%']) {
+    #masthead {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 80em) {
     html:is([data-scroll='0']) {
         #topNavBar.navClosed {
