@@ -102,11 +102,9 @@ main {
     transition: none;
     cursor: pointer;
     position: relative;
+    transition: color .25s ease-in-out;
 }
 
-.aboutContact {
-    transition: color 0.25s ease-in-out;
-}
 
 .aboutContact:hover {
     color: var(--grey);
